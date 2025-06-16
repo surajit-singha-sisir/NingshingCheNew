@@ -69,7 +69,7 @@
 
             <!-- Navigation Menu -->
             <div id="navMenu"
-                class="fixed top-0 left-0 w-64 h-full bg-white dark:bg-gray-900 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 lg:flex lg:space-x-6 lg:items-center lg:shadow-none lg:w-auto lg:h-auto lg:relative z-50">
+                class="fixed top-0 left-0 w-64 h-full shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 lg:flex lg:space-x-6 lg:items-center lg:shadow-none lg:w-auto lg:h-auto lg:relative z-50">
 
                 <!-- Mobile Close Button -->
                 <div class="flex justify-between items-center p-4 lg:hidden">
@@ -86,8 +86,9 @@
                     <a href="/" class="hover:text-saffron transition" title="সাম্প্রতিক">সাম্প্রতিক</a>
 
                     <!-- Dropdown 1 -->
-                    <div class="relative group">
-                        <button class="hover:text-saffron transition flex items-center space-x-1 focus:outline-none">
+                    <div class="relative">
+                        <button
+                            class="dropdown-toggle hover:text-saffron transition flex items-center space-x-1 focus:outline-none">
                             <span>অনলাইন চে</span>
                             <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
                         </button>
@@ -127,13 +128,14 @@
                     <a href="/about.html" class="hover:text-saffron transition" title="আমার সম্পর্কে">আমার সম্পর্কে</a>
 
                     <!-- Dropdown 2 -->
-                    <div class="relative group">
-                        <button class="hover:text-saffron transition flex items-center space-x-1 focus:outline-none">
+                    <div class="relative">
+                        <button
+                            class="dropdown-toggle hover:text-saffron transition flex items-center space-x-1 focus:outline-none">
                             <span>আরাকউ</span>
                             <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
                         </button>
                         <div
-                            class="absolute left-0 mt-2 w-52 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg hidden group-hover:block z-50">
+                            class="absolute left-0 mt-2 w-52 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
                             <a href="/lekhok" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
                                 title="লেখক">লেখক</a>
                             <a href="/social-activities"
@@ -177,6 +179,7 @@
 
     <!-- Overlay -->
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40 lg:hidden"></div>
+
     <!-- JavaScript -->
     <script>
         const hamburger = document.getElementById('hamburger');
@@ -198,6 +201,33 @@
             navMenu.classList.add('-translate-x-full');
             overlay.classList.add('hidden');
         });
+
+        // Dropdown toggles
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const dropdown = toggle.nextElementSibling;
+
+                if (!dropdown) return;
+
+                dropdown.classList.toggle('hidden');
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            dropdownToggles.forEach(toggle => {
+                const dropdown = toggle.nextElementSibling;
+                if (!dropdown) return;
+
+                if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        });
     </script>
 
 
@@ -205,42 +235,165 @@
 
 
     <!-- Hero Carousel -->
-    <section class="relative bg-gradient-to-b from-cream1 to-cream2 py-8">
+    <section class="relative bg-gradient-to-b from-cream1 to-cream2 dark:from-gray-800 dark:to-gray-900 py-8">
         <div class="container mx-auto px-4">
             <div class="carousel-container relative overflow-hidden rounded-xl h-96">
-                <div class="carousel-wrapper flex transition-transform duration-500 ease-in-out" style="width: 400%">
+                <div class="carousel-wrapper flex transition-transform duration-500 ease-in-out" id="carouselWrapper">
                     <!-- Slide 1 -->
-                    <div class="carousel-slide w-full">
+                    <div class="carousel-slide w-full flex-shrink-0">
                         <div class="flex flex-col md:flex-row items-center h-96">
                             <div class="md:w-1/2 p-8">
-                                <span class="bg-saffron text-white px-3 py-1 rounded-full text-sm mb-3">বিশেষ</span>
-                                <h2 class="text-3xl md:text-4xl font-bold text-saffron mb-4">
+                                <span
+                                    class="bg-saffron text-white px-3 py-1 rounded-full text-sm mb-3 dark:bg-saffron-dark">বিশেষ</span>
+                                <h2 class="text-3xl md:text-4xl font-bold text-saffron mb-4 dark:text-saffron-light">
                                     মণিপুরী রাসলীলা: অতি আদির নৃত্যকলা
                                 </h2>
-                                <p class="text-deepbrown mb-6">
-                                    ভারতের উত্তর-পূর্বাঞ্চলের মণিপুর রাজ্যের এই ঐতিহ্যবাহী
-                                    ধ্রুপদী নৃত্যরীতি বিশ্ব সাংস্কৃতিক ঐতিহ্যের অংশ।
+                                <p class="text-deepbrown mb-6 dark:text-gray-200">
+                                    ভারতের উত্তর-পূর্বাঞ্চলের মণিপুর রাজ্যের এই ঐতিহ্যবাহী ধ্রুপদী নৃত্যরীতি বিশ্ব
+                                    সাংস্কৃতিক ঐতিহ্যের অংশ।
                                 </p>
                                 <a href="#"
-                                    class="inline-block bg-maroon text-white px-6 py-2 rounded-md hover:bg-saffron transition">আরও
+                                    class="inline-block bg-maroon text-white px-6 py-2 rounded-md hover:bg-saffron transition dark:bg-maroon-dark dark:hover:bg-saffron-dark">আরও
                                     পড়ুন</a>
                             </div>
-                            <div class="md:w-1/2 h-full">
-                                <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-full"></div>
+                            <div class="md:w-1/2 h-full hidden md:block">
+                                <div
+                                    class="bg-gray-200 dark:bg-gray-700 rounded-xl w-full h-full">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide w-full flex-shrink-0">
+                        <div class="flex flex-col md:flex-row items-center h-96">
+                            <div class="md:w-1/2 p-8">
+                                <span
+                                    class="bg-saffron text-white px-3 py-1 rounded-full text-sm mb-3 dark:bg-saffron-dark">নতুন</span>
+                                <h2 class="text-3xl md:text-4xl font-bold text-saffron mb-4 dark:text-saffron-light">
+                                    কাথাকলি: কেরালার নাট্যকলা
+                                </h2>
+                                <p class="text-deepbrown mb-6 dark:text-gray-200">
+                                    কেরালার ঐতিহ্যবাহী কাথাকলি নৃত্যনাট্য তার জটিল মুখের অভিব্যক্তি এবং রঙিন পোষাকের
+                                    জন্য বিখ্যাত।
+                                </p>
+                                <a href="#"
+                                    class="inline-block bg-maroon text-white px-6 py-2 rounded-md hover:bg-saffron transition dark:bg-maroon-dark dark:hover:bg-saffron-dark">আরও
+                                    জানুন</a>
+                            </div>
+                            <div class="md:w-1/2 h-full hidden md:block">
+                                <div
+                                    class="bg-gray-200 dark:bg-gray-700 rounded-xl w-full h-full">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-slide w-full flex-shrink-0">
+                        <div class="flex flex-col md:flex-row items-center h-96">
+                            <div class="md:w-1/2 p-8">
+                                <span
+                                    class="bg-saffron text-white px-3 py-1 rounded-full text-sm mb-3 dark:bg-saffron-dark">ঐতিহ্য</span>
+                                <h2 class="text-3xl md:text-4xl font-bold text-saffron mb-4 dark:text-saffron-light">
+                                    ভরতনাট্যম: দক্ষিণ ভারতের শাস্ত্রীয় নৃত্য
+                                </h2>
+                                <p class="text-deepbrown mb-6 dark:text-gray-200">
+                                    ভরতনাট্যম হলো তামিলনাড়ুর একটি প্রাচীন নৃত্যরূপ, যা আধ্যাত্মিকতা ও শিল্পের সমন্বয়।
+                                </p>
+                                <a href="#"
+                                    class="inline-block bg-maroon text-white px-6 py-2 rounded-md hover:bg-saffron transition dark:bg-maroon-dark dark:hover:bg-saffron-dark">আরও
+                                    দেখুন</a>
+                            </div>
+                            <div class="md:w-1/2 h-full hidden md:block">
+                                <div
+                                    class="bg-gray-200 dark:bg-gray-700 rounded-xl w-full h-full">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Carousel Controls -->
-                <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-                    <button class="w-3 h-3 rounded-full bg-white border border-gray-300"></button>
-                    <button class="w-3 h-3 rounded-full bg-gray-300"></button>
-                    <button class="w-3 h-3 rounded-full bg-gray-300"></button>
+                <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2" id="carouselIndicators">
+                    <button class="w-3 h-3 rounded-full bg-white border border-gray-300 dark:bg-gray-400"
+                        data-slide="0"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600" data-slide="1"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600" data-slide="2"></button>
                 </div>
+
+                <!-- Navigation Arrows -->
+                <button
+                    class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded-full shadow-md hover:bg-gray-100 dark:hover:bg-gray-600"
+                    id="prevSlide">
+                    ←
+                </button>
+                <button
+                    class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded-full shadow-md hover:bg-gray-100 dark:hover:bg-gray-600"
+                    id="nextSlide">
+                    →
+                </button>
             </div>
         </div>
     </section>
+
+    <script>
+        // Carousel JavaScript
+        const carouselWrapper = document.getElementById('carouselWrapper');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('#carouselIndicators button');
+        const prevSlideBtn = document.getElementById('prevSlide');
+        const nextSlideBtn = document.getElementById('nextSlide');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            carouselWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('bg-white', index === currentSlide);
+                indicator.classList.toggle('border-gray-300', index === currentSlide);
+                indicator.classList.toggle('bg-gray-300', index !== currentSlide);
+                indicator.classList.toggle('dark:bg-gray-400', index === currentSlide);
+                indicator.classList.toggle('dark:bg-gray-600', index !== currentSlide);
+            });
+        }
+
+        nextSlideBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        });
+
+        prevSlideBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+
+        indicators.forEach((indicator) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = parseInt(indicator.getAttribute('data-slide'));
+                updateCarousel();
+            });
+        });
+
+        // Auto-slide every 4 seconds
+        let autoSlide = setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }, 4000);
+
+        // Pause auto-slide on hover
+        document.querySelector('.carousel-container').addEventListener('mouseenter', () => {
+            clearInterval(autoSlide);
+        });
+
+        document.querySelector('.carousel-container').addEventListener('mouseleave', () => {
+            autoSlide = setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }, 4000);
+        });
+
+        // Initial update
+        updateCarousel();
+    </script>
 
     <!-- Main Content Section -->
     <main class="container mx-auto px-4 py-8">
@@ -658,45 +811,6 @@
             }
         });
 
-        // Basic carousel functionality (simple rotation)
-        let slideIndex = 0;
-        const slides = document.querySelectorAll(".carousel-slide");
-        const dots = document.querySelectorAll(".carousel-container button");
-
-        function showSlides() {
-            // Hide all slides
-            document.querySelector(
-                ".carousel-wrapper"
-            ).style.transform = `translateX(-${slideIndex * 100}%)`;
-
-            // Update active dot
-            dots.forEach((dot, index) => {
-                if (index === slideIndex) {
-                    dot.classList.add("bg-white", "border-saffron");
-                    dot.classList.remove("bg-gray-300");
-                } else {
-                    dot.classList.remove("bg-white", "border-saffron");
-                    dot.classList.add("bg-gray-300");
-                }
-            });
-
-            // Rotate every 5 seconds
-            slideIndex = (slideIndex + 1) % slides.length;
-            setTimeout(showSlides, 5000);
-        }
-
-        // Initialize carousel
-        showSlides();
-
-        // Click dot to show specific slide
-        dots.forEach((dot, index) => {
-            dot.addEventListener("click", () => {
-                slideIndex = index;
-                document.querySelector(
-                    ".carousel-wrapper"
-                ).style.transform = `translateX(-${slideIndex * 100}%)`;
-            });
-        });
     </script>
 
     <script>
