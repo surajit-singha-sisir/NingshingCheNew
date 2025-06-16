@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>নিংশিং চে - বীর মণিপুরী আদর্শ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              hind: ["Hind Siliguri", "sans-serif"],
+            },
+            colors: {
+              maroon: "#6e2b19",
+              saffron: "#ff9933",
+              deepBrown: "#4b2e2b",
+              cream: "#f9f5e9",
+              lightCream: "#fffaf2",
+              gold: "#d4af37",
+            },
+            backgroundImage: {
+              "sanskrit-pattern":
+                "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm57-13c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm-9-21c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM60 91c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM35 41c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM12 60c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z' fill='%23000000' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style type="text/tailwindcss">
+      @layer base {
+        body {
+          @apply font-hind bg-[#f9f5e9] dark:bg-gray-900 bg-[length:300px_300px] bg-sanskrit-pattern;
+        }
+        h1,
+        h2,
+        h3,
+        h4 {
+          @apply font-bold;
+        }
+      }
+      #header-wrapper {
+        background: linear-gradient(135deg, #6e2b19 0%, #832e1e 100%);
+      }
+      .social-icon {
+        @apply transition-all duration-300 text-white hover:text-saffron text-lg mx-2;
+      }
+      .nav-link {
+        @apply py-3 px-4 text-gold hover:text-saffron font-medium transition-colors duration-300;
+      }
+      .article-card {
+        @apply rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-800 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lg;
+      }
+      .category-badge {
+        @apply px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-700 text-sm mr-2 mb-2;
+      }
+      .dark .saffron-hover:hover {
+        @apply text-saffron;
+      }
+      .gradient-bg {
+        background: linear-gradient(to bottom, #f9f5e9, #fffaf2);
+      }
+      .hero-slide {
+        background-size: cover;
+        background-position: center;
+      }
+      .slide-indicator {
+        @apply w-3 h-3 rounded-full bg-white opacity-50 mx-1 cursor-pointer;
+      }
+      .slide-indicator.active {
+        @apply opacity-100;
+      }
+    </style>
+  </head>
+  <body class="font-hind text-gray-800 dark:text-gray-100">
+    <!-- Dark Mode Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+      <button
+        id="dark-mode-toggle"
+        class="bg-maroon dark:bg-saffron text-white w-12 h-12 rounded-full shadow-xl flex items-center justify-center"
+      >
+        <i class="fas fa-sun dark:block hidden"></i>
+        <i class="fas fa-moon dark:hidden"></i>
+      </button>
+    </div>
+
+    <!-- Header -->
+    <header id="header-wrapper" class="text-white relative">
+      <div class="text-center py-1 text-sm">
+        বীর মণিপুরী সত্তাকে পুনঃজাগ্রত করার সংকল্পে
+      </div>
+      <div
+        id="header"
+        class="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center"
+      >
+        <div class="flex flex-col items-center md:items-start">
+          <h1 class="text-3xl md:text-4xl font-bold tracking-wide">
+            নিংশিং চে
+          </h1>
+          <p class="text-gold mt-1">বীর মণিপুরী আদর্শের আবাস</p>
+        </div>
+        <div class="mt-4 md:mt-0 flex items-center">
+          <a href="#" class="social-icon">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sticky Navbar -->
+    <nav
+      id="navbar"
+      class="sticky top-0 z-40 bg-maroon bg-opacity-90 backdrop-blur-md transition-all duration-300"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="py-2">
+            <div class="flex items-center space-x-2">
+              <i class="fas fa-bars md:hidden text-white"></i>
+              <div class="text-white text-sm md:hidden">মেনু</div>
+            </div>
+          </div>
+          <div class="hidden md:flex">
+            <a href="#" class="nav-link">ঘর</a>
+            <a href="#" class="nav-link">নিংশিং'র পৌ</a>
+            <div class="group relative">
+              <a href="#" class="nav-link flex items-center">
+                নিংশিং চে (অনলাইন)
+                <i class="fas fa-caret-down ml-1"></i>
+              </a>
+              <div
+                class="absolute left-0 mt-1 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 hidden group-hover:block"
+              >
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  >বিশ্লেষণ</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  >সাক্ষাৎকার</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  >ম্যাগাজিন</a
+                >
+              </div>
+            </div>
+            <a href="#" class="nav-link">লেখক-লেখিকা</a>
+            <a href="#" class="nav-link">নিংশিং'র অবদান</a>
+            <a href="#" class="nav-link">নিংশিং ব্লগ ফোরাম</a>
+            <a href="#" class="nav-link">আমার সম্পর্কে</a>
+          </div>
+          <div class="md:hidden py-3">
+            <i class="fas fa-search text-white"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <section id="hero" class="relative overflow-hidden gradient-bg">
+      <div class="carousel-container relative">
+        <div class="carousel-slides flex">
+          <div
+            class="hero-slide min-w-full h-[500px] relative"
+            style="
+              background-image: url('https://1.bp.blogspot.com/-mfCy6BD13xY/Wci8U1xJ8gI/AAAAAAAABFY/VLRWvXwSB0YKk9Nx7IUexnYaMl_sF2MzQCLcBGAs/s1600/Ningshing-Cover.jpg');
+            "
+          >
+            <div
+              class="absolute inset-0 bg-black bg-opacity-40 flex items-center"
+            >
+              <div class="container mx-auto px-4 md:px-8">
+                <div class="max-w-2xl bg-black bg-opacity-40 p-8 rounded-lg">
+                  <span
+                    class="bg-saffron text-white px-3 py-1 rounded font-medium mb-3 inline-block"
+                    >মণিপুরী ঐতিহ্য</span
+                  >
+                  <h2 class="text-3xl md:text-4xl font-bold text-white">
+                    বীর মণিপুরী সভ্যতার স্বাক্ষর
+                  </h2>
+                  <p class="text-white mt-4 mb-6">
+                    বিষ্ণুপ্রিয়া মণিপুরীদের এক অনন্য ইতিহাস, কৃষ্টি ও ঐতিহ্য যা
+                    শতাব্দীর পর শতাব্দী ধরে বাঙালি সংস্কৃতির সাথে মিশে এক
+                    অসামান্য প্রতীক হয়ে দাঁড়িয়েছে
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-flex items-center text-white bg-saffron hover:bg-opacity-90 py-2 px-6 rounded-lg font-medium"
+                  >
+                    আরও পড়ুন <i class="fas fa-arrow-right ml-2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex">
+        <div class="slide-indicator active"></div>
+        <div class="slide-indicator"></div>
+        <div class="slide-indicator"></div>
+        <div class="slide-indicator"></div>
+      </div>
+    </section>
+
+    <!-- Featured Article Carousel -->
+    <section class="py-10 bg-gray-50 dark:bg-gray-800">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-6 border-l-4 border-saffron pl-3">
+          সম্পাদকের পছন্দ
+        </h2>
+        <div class="overflow-x-auto pb-6">
+          <div class="flex space-x-4 w-max">
+            <div class="article-card w-64">
+              <div
+                class="h-40 bg-cover bg-center"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1611267254323-4db7b39c732c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');
+                "
+              ></div>
+              <div class="p-4">
+                <span class="text-xs text-gray-500 dark:text-gray-400"
+                  >১ ডিসেম্বর, ২০২৩</span
+                >
+                <h3 class="font-bold mt-1 mb-2">
+                  রাসলীলার ঐতিহ্য: মণিপুরীদের সংস্কৃতির এক অনন্য নিদর্শন
+                </h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  রাসলীলা নৃত্য শুধুমাত্র একটি নৃত্য নয়, এটি মণিপুরী জীবনের
+                  দর্শন
+                </p>
+                <a
+                  href="#"
+                  class="text-saffron font-medium text-sm flex items-center"
+                >
+                  আরও পড়ুন <i class="fas fa-angle-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="article-card w-64">
+              <div
+                class="h-40 bg-cover bg-center"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');
+                "
+              ></div>
+              <div class="p-4">
+                <span class="text-xs text-gray-500 dark:text-gray-400"
+                  >২৮ নভেম্বর, ২০২৩</span
+                >
+                <h3 class="font-bold mt-1 mb-2">
+                  মণিপুরী ভাষার স্বরূপ ও বিবর্তন
+                </h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  একটি ঐতিহাসিক ভাষার উৎপত্তি, বিকাশ এবং বর্তমান অবস্থা
+                </p>
+                <a
+                  href="#"
+                  class="text-saffron font-medium text-sm flex items-center"
+                >
+                  আরও পড়ুন <i class="fas fa-angle-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="article-card w-64">
+              <div
+                class="h-40 bg-cover bg-center"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1560421681-685c7f1e1dfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');
+                "
+              ></div>
+              <div class="p-4">
+                <span class="text-xs text-gray-500 dark:text-gray-400"
+                  >২৫ নভেম্বর, ২০২৩</span
+                >
+                <h3 class="font-bold mt-1 mb-2">
+                  সুফলাই: মণিপুরীদের ঐতিহ্যবাহী শিল্পের অনুপম নিদর্শন
+                </h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  কীভাবে একটি ঐতিহ্যবাহী হস্তশিল্প রক্ষা করা যায়?
+                </p>
+                <a
+                  href="#"
+                  class="text-saffron font-medium text-sm flex items-center"
+                >
+                  আরও পড়ুন <i class="fas fa-angle-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="article-card w-64">
+              <div
+                class="h-40 bg-cover bg-center"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1562569633-622763b9ba0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');
+                "
+              ></div>
+              <div class="p-4">
+                <span class="text-xs text-gray-500 dark:text-gray-400"
+                  >২০ নভেম্বর, ২০২৩</span
+                >
+                <h3 class="font-bold mt-1 mb-2">
+                  মণিপুরী রন্ধনশৈলী: স্বাদে ও গন্ধে অনন্য
+                </h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  মণিপুরী খাবারের বৈচিত্র্য এবং স্বাস্থ্যগুণ সম্পর্কে জানুন
+                </p>
+                <a
+                  href="#"
+                  class="text-saffron font-medium text-sm flex items-center"
+                >
+                  আরও পড়ুন <i class="fas fa-angle-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-12">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Left Column (8/12) -->
+          <div class="w-full lg:w-8/12">
+            <!-- Featured Article -->
+            <div class="article-card">
+              <div class="relative">
+                <div
+                  class="h-64 bg-cover bg-center"
+                  style="
+                    background-image: url('https://images.unsplash.com/photo-1562887189-5d26ed22c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+                  "
+                ></div>
+                <span
+                  class="absolute top-4 right-4 bg-saffron text-white px-3 py-1 rounded font-medium"
+                  >ফিচার্ড</span
+                >
+              </div>
+              <div class="p-6">
+                <span class="text-sm text-gray-500 dark:text-gray-400"
+                  >১০ ডিসেম্বর, ২০২৩ | লিখেছেন: রিমা দেবী</span
+                >
+                <h2 class="text-2xl font-bold mt-2 mb-3">
+                  বাংলাদেশ ও ভারতের মণিপুরী জনগোষ্ঠীর সাংস্কৃতিক ও ঐতিহাসিক
+                  সম্পর্ক
+                </h2>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                  বিষ্ণুপ্রিয়া মণিপুরী সম্প্রদায়ের লোকেরা বাংলাদেশের
+                  উত্তর-পূর্ব সিলেট বিভাগের মৌলভীবাজার, হবিগঞ্জ ও সুনামগঞ্জ
+                  জেলায় এবং ভারতের আসাম, ত্রিপুরা ও মণিপুর রাজ্যে বসবাস করেন।
+                  এই গোষ্ঠীটি আসামীয়-বর্মী ভাষা গোষ্ঠীর অন্তর্গত বিষ্ণুপ্রিয়া
+                  মণিপুরী ভাষায় কথা বলে।
+                </p>
+                <div class="flex justify-between items-center">
+                  <a href="#" class="text-saffron font-medium">
+                    আরও পড়ুন <i class="fas fa-arrow-right ml-1"></i>
+                  </a>
+                  <div class="flex space-x-3 text-gray-500">
+                    <a href="#"><i class="fas fa-share-alt"></i></a>
+                    <a href="#"><i class="fas fa-bookmark"></i></a>
+                    <a href="#"><i class="fas fa-comment"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Article Grid -->
+            <div class="mt-10">
+              <h2
+                class="text-2xl font-bold mb-6 border-l-4 border-saffron pl-3"
+              >
+                সাম্প্রতিক প্রবন্ধ
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Article 1 -->
+                <div class="article-card">
+                  <div
+                    class="h-48 bg-cover bg-center"
+                    style="
+                      background-image: url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');
+                    "
+                  ></div>
+                  <div class="p-4">
+                    <span class="text-xs text-gray-500 dark:text-gray-400"
+                      >৮ ডিসেম্বর, ২০২৩</span
+                    >
+                    <h3 class="font-bold mt-1 mb-2">
+                      মণিপুরী শিক্ষাব্যবস্থায় ঐতিহ্যবাহী জ্ঞানের সংমিশ্রণ
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                      পরম্পরাগত শিক্ষা কীভাবে আধুনিক শিক্ষার সাথে সমন্বয় করা
+                      সম্ভব
+                    </p>
+                    <a
+                      href="#"
+                      class="text-saffron font-medium text-sm flex items-center"
+                    >
+                      আরও পড়ুন <i class="fas fa-angle-right ml-1"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="article-card">
+                  <div
+                    class="h-48 bg-cover bg-center"
+                    style="
+                      background-image: url('https://images.unsplash.com/photo-1606326608606-aa0b414d3d94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');
+                    "
+                  ></div>
+                  <div class="p-4">
+                    <span class="text-xs text-gray-500 dark:text-gray-400"
+                      >৫ ডিসেম্বর, ২০২৩</span
+                    >
+                    <h3 class="font-bold mt-1 mb-2">
+                      মণিপুরী সাহিত্য: এক উজ্জ্বল অধ্যায়
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                      মণিপুরী সাহিত্যের ইতিহাস এবং উল্লেখযোগ্য সাহিত্যিক
+                    </p>
+                    <a
+                      href="#"
+                      class="text-saffron font-medium text-sm flex items-center"
+                    >
+                      আরও পড়ুন <i class="fas fa-angle-right ml-1"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="article-card">
+                  <div
+                    class="h-48 bg-cover bg-center"
+                    style="
+                      background-image: url('https://images.unsplash.com/photo-1606327287119-bc0a9c8e9c3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');
+                    "
+                  ></div>
+                  <div class="p-4">
+                    <span class="text-xs text-gray-500 dark:text-gray-400"
+                      >৩০ নভেম্বর, ২০২৩</span
+                    >
+                    <h3 class="font-bold mt-1 mb-2">
+                      আধুনিক সমাজে মণিপুরী নারীদের ভূমিকা
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                      সমাজের পরিবর্তনশীল রূপে কীভাবে নারীরা তাদের ভূমিকা
+                      নির্ধারণ করছেন
+                    </p>
+                    <a
+                      href="#"
+                      class="text-saffron font-medium text-sm flex items-center"
+                    >
+                      আরও পড়ুন <i class="fas fa-angle-right ml-1"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Article 4 -->
+                <div class="article-card">
+                  <div
+                    class="h-48 bg-cover bg-center"
+                    style="
+                      background-image: url('https://images.unsplash.com/photo-1603217427614-7ae372de7d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');
+                    "
+                  ></div>
+                  <div class="p-4">
+                    <span class="text-xs text-gray-500 dark:text-gray-400"
+                      >২৭ নভেম্বর, ২০২৩</span
+                    >
+                    <h3 class="font-bold mt-1 mb-2">
+                      ডলি কুত্তি নাচ: বিলুপ্তপ্রায় এক নৃত্যশৈলী
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                      এই ঐতিহ্যবাহী নৃত্যকে সংরক্ষণে নেওয়া পদক্ষেপ
+                    </p>
+                    <a
+                      href="#"
+                      class="text-saffron font-medium text-sm flex items-center"
+                    >
+                      আরও পড়ুন <i class="fas fa-angle-right ml-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center items-center space-x-4">
+              <button
+                class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded hover:bg-saffron hover:text-white"
+              >
+                পূর্বে
+              </button>
+              <div class="flex space-x-2">
+                <button class="w-10 h-10 rounded bg-saffron text-white">
+                  1
+                </button>
+                <button
+                  class="w-10 h-10 rounded hover:bg-saffron hover:text-white"
+                >
+                  2
+                </button>
+                <button
+                  class="w-10 h-10 rounded hover:bg-saffron hover:text-white"
+                >
+                  3
+                </button>
+                <span class="self-center">...</span>
+                <button
+                  class="w-10 h-10 rounded hover:bg-saffron hover:text-white"
+                >
+                  10
+                </button>
+              </div>
+              <button
+                class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded hover:bg-saffron hover:text-white"
+              >
+                পিসেদে
+              </button>
+            </div>
+          </div>
+
+          <!-- Sidebar (4/12) -->
+          <div class="w-full lg:w-4/12 mt-10 lg:mt-0">
+            <!-- Search -->
+            <div class="article-card p-4 mb-6">
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="সার্চ করুন..."
+                  class="w-full py-3 px-4 pl-12 rounded-lg border focus:outline-none focus:ring-2 focus:ring-saffron dark:bg-gray-800 dark:border-gray-700"
+                />
+                <i
+                  class="fas fa-search absolute left-4 top-4 text-gray-500"
+                ></i>
+              </div>
+            </div>
+
+            <!-- About -->
+            <div class="article-card p-6 mb-6">
+              <h3 class="font-bold text-xl mb-4">নিংশিং চে সম্পর্কে</h3>
+              <img
+                src="https://placehold.co/400x200/6e2b19/white?text=নিংশিং+চে"
+                alt="About"
+                class="w-full rounded mb-4"
+              />
+              <p class="text-gray-700 dark:text-gray-300">
+                নিংশিং চে হল একটি অলাভজনক সংস্থা যার মূল লক্ষ্য হলো মণিপুরী
+                সাংস্কৃতিক ঐতিহ্য সংরক্ষণ, গবেষণা, এবং বিস্তৃত করা। আমাদের
+                লক্ষ্য প্রজন্ম থেকে প্রজন্মে এই অমূল্য সাংস্কৃতিক ঐতিহ্যকে অক্ষত
+                রেখে একটি সচেতন ও ঐক্যবদ্ধ মণিপুরী সমাজ গঠন।
+              </p>
+              <a href="#" class="mt-3 inline-block text-saffron font-medium">
+                আরও জানুন <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+
+            <!-- Popular Categories -->
+            <div class="article-card p-6 mb-6">
+              <h3 class="font-bold text-xl mb-4">জনপ্রিয় বিভাগ</h3>
+              <div class="flex flex-wrap">
+                <span class="category-badge">সংস্কৃতি</span>
+                <span class="category-badge">ইতিহাস</span>
+                <span class="category-badge">ভাষা</span>
+                <span class="category-badge">ঐতিহ্য</span>
+                <span class="category-badge">রন্ধনপ্রণালী</span>
+                <span class="category-badge">সাক্ষাৎকার</span>
+                <span class="category-badge">সাহিত্য</span>
+                <span class="category-badge">কবিতা</span>
+                <span class="category-badge">শিল্পকলা</span>
+              </div>
+            </div>
+
+            <!-- Recent Articles -->
+            <div class="article-card p-6 mb-6">
+              <h3 class="font-bold text-xl mb-4">সাম্প্রতিক পোস্ট</h3>
+              <div class="space-y-4">
+                <div class="flex">
+                  <div class="w-20 h-20 flex-shrink-0">
+                    <div
+                      class="bg-cover bg-center w-full h-full rounded"
+                      style="
+                        background-image: url('https://images.unsplash.com/photo-1606327287635-61cd3b61fa24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80');
+                      "
+                    ></div>
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="font-medium leading-tight">
+                      ঐতিহ্যবাহী মণিপুরী পোশাকের বিবর্তন
+                    </h4>
+                    <span class="text-xs text-gray-500 dark:text-gray-400"
+                      >ডিসেম্বর ১২</span
+                    >
+                  </div>
+                </div>
+
+                <div class="flex">
+                  <div class="w-20 h-20 flex-shrink-0">
+                    <div
+                      class="bg-cover bg-center w-full h-full rounded"
+                      style="
+                        background-image: url('https://images.unsplash.com/photo-1606327369993-1f8d09aafbf4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80');
+                      "
+                    ></div>
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="font-medium leading-tight">
+                      মণিপুরী লোকগীতি: শব্দের সোনালি ডানা
+                    </h4>
+                    <span class="text-xs text-gray-500 dark:text-gray-400"
+                      >ডিসেম্বর ১০</span
+                    >
+                  </div>
+                </div>
+
+                <div class="flex">
+                  <div class="w-20 h-20 flex-shrink-0">
+                    <div
+                      class="bg-cover bg-center w-full h-full rounded"
+                      style="
+                        background-image: url('https://images.unsplash.com/photo-1562569633-62e1b8b2a49f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80');
+                      "
+                    ></div>
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="font-medium leading-tight">
+                      মণিপুরীদের নতুন বছর উদ্যাপন
+                    </h4>
+                    <span class="text-xs text-gray-500 dark:text-gray-400"
+                      >ডিসেম্বর ৮</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ads -->
+            <div
+              class="article-card p-4 mb-6 flex items-center justify-center"
+              style="height: 250px"
+            >
+              <div class="text-center text-gray-500">
+                <i class="fas fa-ad text-4xl mb-2"></i>
+                <p>বিজ্ঞাপন</p>
+                <p>300x250</p>
+              </div>
+            </div>
+
+            <!-- Video Blog -->
+            <div class="article-card p-6 mb-6">
+              <h3 class="font-bold text-xl mb-4">ভিডিও ব্লগ</h3>
+              <div
+                class="aspect-w-16 aspect-h-9 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center"
+              >
+                <i class="fas fa-play-circle text-5xl text-saffron"></i>
+              </div>
+              <h4 class="font-medium mt-3">
+                মণিপুরীদের ঐতিহ্যবাহী শাকাহারী উৎসব
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscription -->
+    <section class="py-12 bg-[#f9f5e9] dark:bg-gray-800">
+      <div class="container mx-auto px-4 max-w-3xl text-center">
+        <h2 class="text-3xl font-bold mb-4">আমাদের সাথে সংযুক্ত হন</h2>
+        <p class="text-gray-700 dark:text-gray-300 mb-8">
+          সকল আপডেট এবং নতুন প্রবন্ধের জন্য সাবস্ক্রাইব করুন।
+        </p>
+        <div class="flex flex-col md:flex-row gap-4">
+          <input
+            type="email"
+            placeholder="আপনার ইমেইল ঠিকানা"
+            class="px-4 py-3 rounded-lg border flex-grow focus:outline-none focus:ring-2 focus:ring-saffron dark:bg-gray-700"
+          />
+          <button
+            class="px-6 py-3 bg-saffron text-white rounded-lg font-medium hover:bg-opacity-90"
+          >
+            সাবস্ক্রাইব <i class="fas fa-paper-plane ml-2"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deepBrown text-white pt-12 pb-6">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+          <!-- Contact Info -->
+          <div>
+            <h3 class="text-xl font-bold mb-4">যোগাযোগ</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-3 text-saffron"></i>
+                <span>শহীদ নুরুল ইসলাম সরণি, কাজলশাল ব্রীজ, সিলেট</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-phone-alt mt-1 mr-3 text-saffron"></i>
+                <span>+880 1234 567890</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-envelope mt-1 mr-3 text-saffron"></i>
+                <span>info@ningshingche.com</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-xl font-bold mb-4">দ্রুত লিংক</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-saffron">হোমপেজ</a></li>
+              <li>
+                <a href="#" class="hover:text-saffron">আমাদের সম্পর্কে</a>
+              </li>
+              <li><a href="#" class="hover:text-saffron">সেবাসমূহ</a></li>
+              <li><a href="#" class="hover:text-saffron">প্রবন্ধ</a></li>
+              <li><a href="#" class="hover:text-saffron">গবেষণা</a></li>
+              <li><a href="#" class="hover:text-saffron">যোগাযোগ</a></li>
+            </ul>
+          </div>
+
+          <!-- Social & Apps -->
+          <div>
+            <h3 class="text-xl font-bold mb-4">আমাদের অনুসরণ করুন</h3>
+            <div class="flex space-x-4 mb-6">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-saffron"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-saffron"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-saffron"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-saffron"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4">মোবাইল অ্যাপ</h3>
+            <div class="flex space-x-3">
+              <button
+                class="flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 py-2 px-4 rounded-lg"
+              >
+                <i class="fab fa-google-play mr-2 text-xl"></i>
+                <span>Play Store</span>
+              </button>
+              <button
+                class="flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 py-2 px-4 rounded-lg"
+              >
+                <i class="fab fa-apple mr-2 text-xl"></i>
+                <span>App Store</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="pt-6 mt-6 border-t border-white border-opacity-20 text-center"
+        >
+          <p>© 2023 নিংশিং চে. সমস্ত অধিকার সংরক্ষিত।</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Dark mode toggle
+      document
+        .getElementById("dark-mode-toggle")
+        .addEventListener("click", function () {
+          document.documentElement.classList.toggle("dark");
+
+          // Update icon based on theme
+          const iconSun = this.querySelector(".fa-sun");
+          const iconMoon = this.querySelector(".fa-moon");
+
+          if (document.documentElement.classList.contains("dark")) {
+            iconSun.classList.remove("hidden");
+            iconMoon.classList.add("hidden");
+          } else {
+            iconSun.classList.add("hidden");
+            iconMoon.classList.remove("hidden");
+          }
+        });
+
+      // Sticky navbar effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("shadow-md");
+        } else {
+          navbar.classList.remove("shadow-md");
+        }
+      });
+
+      // Carousel functionality
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".hero-slide");
+      const indicators = document.querySelectorAll(".slide-indicator");
+
+      function showSlide(index) {
+        slides.forEach((slide) => (slide.style.display = "none"));
+        indicators.forEach((indicator) => indicator.classList.remove("active"));
+
+        slides[index].style.display = "block";
+        indicators[index].classList.add("active");
+      }
+
+      // Auto rotate slides
+      setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }, 5000);
+
+      // Initialize
+      showSlide(currentSlide);
+    </script>
+  </body>
+</html>

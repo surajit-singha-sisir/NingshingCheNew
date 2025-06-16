@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlogFlow - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#4F46E5",
+              secondary: "#10B981",
+              dark: "#1E293B",
+              light: "#F8FAFC",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .sidebar {
+        transition: all 0.3s ease;
+      }
+      .chart-container {
+        position: relative;
+        height: 300px;
+      }
+      .progress-bar {
+        transition: width 0.5s ease-in-out;
+      }
+    </style>
+  </head>
+  <body class="bg-light text-dark font-sans">
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <div class="sidebar bg-white w-64 px-4 py-6 shadow-lg fixed h-full z-10">
+        <div class="flex items-center justify-center mb-10">
+          <div
+            class="bg-primary w-10 h-10 rounded-lg flex items-center justify-center mr-3"
+          >
+            <i class="fas fa-blog text-white text-xl"></i>
+          </div>
+          <h1 class="text-2xl font-bold text-primary">BlogFlow</h1>
+        </div>
+
+        <nav>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="#"
+                class="flex items-center px-4 py-3 bg-primary text-white rounded-lg"
+              >
+                <i class="fas fa-chart-line mr-3"></i>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center px-4 py-3 hover:bg-gray-100 rounded-lg"
+              >
+                <i class="fas fa-file-alt mr-3"></i>
+                Posts
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center px-4 py-3 hover:bg-gray-100 rounded-lg"
+              >
+                <i class="fas fa-tags mr-3"></i>
+                Categories
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center px-4 py-3 hover:bg-gray-100 rounded-lg"
+              >
+                <i class="fas fa-comments mr-3"></i>
+                Comments
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center px-4 py-3 hover:bg-gray-100 rounded-lg"
+              >
+                <i class="fas fa-users mr-3"></i>
+                Users
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center px-4 py-3 hover:bg-gray-100 rounded-lg"
+              >
+                <i class="fas fa-chart-pie mr-3"></i>
+                Analytics
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center px-4 py-3 hover:bg-gray-100 rounded-lg"
+              >
+                <i class="fas fa-cog mr-3"></i>
+                Settings
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="mt-auto pt-6 border-t border-gray-200">
+          <div class="flex items-center px-4 py-3 bg-gray-50 rounded-lg">
+            <img
+              src="https://ui-avatars.com/api/?name=Admin+User&background=4F46E5&color=fff"
+              alt="User"
+              class="w-10 h-10 rounded-full"
+            />
+            <div class="ml-3">
+              <p class="font-medium">Admin User</p>
+              <p class="text-sm text-gray-500">admin@blogflow.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="ml-64 flex-1">
+        <!-- Header -->
+        <header
+          class="bg-white shadow-sm py-4 px-6 flex justify-between items-center"
+        >
+          <div class="flex items-center">
+            <button id="menu-toggle" class="md:hidden mr-4">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+            <h2 class="text-xl font-semibold">Dashboard</h2>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Search..."
+                class="border border-gray-300 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+              <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+            <button class="relative p-2 text-gray-600 hover:text-primary">
+              <i class="fas fa-bell text-xl"></i>
+              <span
+                class="absolute top-0 right-0 bg-secondary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+                >3</span
+              >
+            </button>
+            <button
+              class="bg-primary text-white px-4 py-2 rounded-lg flex items-center"
+            >
+              <i class="fas fa-plus mr-2"></i> New Post
+            </button>
+          </div>
+        </header>
+
+        <!-- Stats Cards -->
+        <div class="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-gray-500">Total Posts</p>
+                <h3 class="text-3xl font-bold mt-2">128</h3>
+              </div>
+              <div class="bg-blue-100 p-3 rounded-full">
+                <i class="fas fa-file-alt text-blue-500 text-xl"></i>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span>This month</span>
+                <span>+12%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-blue-500 h-2 rounded-full progress-bar"
+                  style="width: 75%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-gray-500">Comments</p>
+                <h3 class="text-3xl font-bold mt-2">342</h3>
+              </div>
+              <div class="bg-green-100 p-3 rounded-full">
+                <i class="fas fa-comments text-green-500 text-xl"></i>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span>This month</span>
+                <span>+24%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-green-500 h-2 rounded-full progress-bar"
+                  style="width: 65%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-gray-500">Users</p>
+                <h3 class="text-3xl font-bold mt-2">2,841</h3>
+              </div>
+              <div class="bg-purple-100 p-3 rounded-full">
+                <i class="fas fa-users text-purple-500 text-xl"></i>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span>This month</span>
+                <span>+8%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-purple-500 h-2 rounded-full progress-bar"
+                  style="width: 45%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-gray-500">Engagement</p>
+                <h3 class="text-3xl font-bold mt-2">78%</h3>
+              </div>
+              <div class="bg-yellow-100 p-3 rounded-full">
+                <i class="fas fa-chart-line text-yellow-500 text-xl"></i>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span>This month</span>
+                <span>+5%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-yellow-500 h-2 rounded-full progress-bar"
+                  style="width: 78%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts and Recent Posts -->
+        <div class="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Traffic Chart -->
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="font-semibold text-lg">Traffic Overview</h3>
+              <div class="flex space-x-2">
+                <button class="px-3 py-1 bg-gray-100 rounded-lg text-sm">
+                  Week
+                </button>
+                <button
+                  class="px-3 py-1 bg-primary text-white rounded-lg text-sm"
+                >
+                  Month
+                </button>
+                <button class="px-3 py-1 bg-gray-100 rounded-lg text-sm">
+                  Year
+                </button>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="trafficChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Recent Posts -->
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="font-semibold text-lg">Recent Posts</h3>
+              <a href="#" class="text-primary text-sm">View All</a>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-start border-b pb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80"
+                  alt="Post"
+                  class="w-16 h-16 rounded-lg object-cover"
+                />
+                <div class="ml-4">
+                  <h4 class="font-medium">The Future of Web Development</h4>
+                  <div class="flex items-center text-sm text-gray-500 mt-1">
+                    <span>Tech</span>
+                    <span class="mx-2">•</span>
+                    <span>May 12, 2023</span>
+                    <span class="mx-2">•</span>
+                    <span class="flex items-center">
+                      <i class="fas fa-eye mr-1"></i> 1.2K
+                    </span>
+                  </div>
+                </div>
+                <div class="ml-auto flex space-x-2">
+                  <button class="p-2 text-gray-500 hover:text-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="p-2 text-gray-500 hover:text-red-500">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex items-start border-b pb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80"
+                  alt="Post"
+                  class="w-16 h-16 rounded-lg object-cover"
+                />
+                <div class="ml-4">
+                  <h4 class="font-medium">Understanding CSS Grid Layout</h4>
+                  <div class="flex items-center text-sm text-gray-500 mt-1">
+                    <span>Design</span>
+                    <span class="mx-2">•</span>
+                    <span>May 8, 2023</span>
+                    <span class="mx-2">•</span>
+                    <span class="flex items-center">
+                      <i class="fas fa-eye mr-1"></i> 2.4K
+                    </span>
+                  </div>
+                </div>
+                <div class="ml-auto flex space-x-2">
+                  <button class="p-2 text-gray-500 hover:text-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="p-2 text-gray-500 hover:text-red-500">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <img
+                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80"
+                  alt="Post"
+                  class="w-16 h-16 rounded-lg object-cover"
+                />
+                <div class="ml-4">
+                  <h4 class="font-medium">
+                    JavaScript Best Practices for 2023
+                  </h4>
+                  <div class="flex items-center text-sm text-gray-500 mt-1">
+                    <span>Development</span>
+                    <span class="mx-2">•</span>
+                    <span>May 3, 2023</span>
+                    <span class="mx-2">•</span>
+                    <span class="flex items-center">
+                      <i class="fas fa-eye mr-1"></i> 3.1K
+                    </span>
+                  </div>
+                </div>
+                <div class="ml-auto flex space-x-2">
+                  <button class="p-2 text-gray-500 hover:text-primary">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="p-2 text-gray-500 hover:text-red-500">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comments and Activity -->
+        <div class="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Recent Comments -->
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="font-semibold text-lg">Recent Comments</h3>
+              <a href="#" class="text-primary text-sm">View All</a>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <img
+                  src="https://ui-avatars.com/api/?name=John+Doe&background=4F46E5&color=fff"
+                  alt="User"
+                  class="w-10 h-10 rounded-full"
+                />
+                <div class="ml-4">
+                  <div class="flex items-center">
+                    <h4 class="font-medium">John Doe</h4>
+                    <span
+                      class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full ml-2"
+                      >New</span
+                    >
+                  </div>
+                  <p class="text-gray-600 mt-1">
+                    Great article! Really helped me understand the concepts
+                    better.
+                  </p>
+                  <div class="flex items-center text-sm text-gray-500 mt-2">
+                    <span>On: The Future of Web Development</span>
+                    <span class="mx-2">•</span>
+                    <span>2 hours ago</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-start pt-4 border-t">
+                <img
+                  src="https://ui-avatars.com/api/?name=Sarah+Smith&background=10B981&color=fff"
+                  alt="User"
+                  class="w-10 h-10 rounded-full"
+                />
+                <div class="ml-4">
+                  <h4 class="font-medium">Sarah Smith</h4>
+                  <p class="text-gray-600 mt-1">
+                    Could you provide more examples for the grid layout section?
+                  </p>
+                  <div class="flex items-center text-sm text-gray-500 mt-2">
+                    <span>On: Understanding CSS Grid Layout</span>
+                    <span class="mx-2">•</span>
+                    <span>5 hours ago</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-start pt-4 border-t">
+                <img
+                  src="https://ui-avatars.com/api/?name=Mike+Johnson&background=EF4444&color=fff"
+                  alt="User"
+                  class="w-10 h-10 rounded-full"
+                />
+                <div class="ml-4">
+                  <h4 class="font-medium">Mike Johnson</h4>
+                  <p class="text-gray-600 mt-1">
+                    Thanks for sharing these best practices. They've improved my
+                    code quality significantly!
+                  </p>
+                  <div class="flex items-center text-sm text-gray-500 mt-2">
+                    <span>On: JavaScript Best Practices for 2023</span>
+                    <span class="mx-2">•</span>
+                    <span>Yesterday</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Feed -->
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="font-semibold text-lg">Activity Feed</h3>
+              <a href="#" class="text-primary text-sm">View All</a>
+            </div>
+            <div class="space-y-4">
+              <div class="flex">
+                <div class="flex-shrink-0 mr-4">
+                  <div
+                    class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center"
+                  >
+                    <i class="fas fa-user-plus text-blue-500"></i>
+                  </div>
+                </div>
+                <div>
+                  <p class="font-medium">New user registered</p>
+                  <p class="text-gray-600">Alex Morgan joined your blog</p>
+                  <p class="text-sm text-gray-500 mt-1">30 minutes ago</p>
+                </div>
+              </div>
+
+              <div class="flex pt-4">
+                <div class="flex-shrink-0 mr-4">
+                  <div
+                    class="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center"
+                  >
+                    <i class="fas fa-thumbs-up text-green-500"></i>
+                  </div>
+                </div>
+                <div>
+                  <p class="font-medium">Post liked</p>
+                  <p class="text-gray-600">
+                    Sarah Smith liked your post "Understanding CSS Grid Layout"
+                  </p>
+                  <p class="text-sm text-gray-500 mt-1">2 hours ago</p>
+                </div>
+              </div>
+
+              <div class="flex pt-4">
+                <div class="flex-shrink-0 mr-4">
+                  <div
+                    class="bg-purple-100 w-10 h-10 rounded-full flex items-center justify-center"
+                  >
+                    <i class="fas fa-share-alt text-purple-500"></i>
+                  </div>
+                </div>
+                <div>
+                  <p class="font-medium">Post shared</p>
+                  <p class="text-gray-600">
+                    Your post "JavaScript Best Practices" was shared 15 times
+                  </p>
+                  <p class="text-sm text-gray-500 mt-1">5 hours ago</p>
+                </div>
+              </div>
+
+              <div class="flex pt-4">
+                <div class="flex-shrink-0 mr-4">
+                  <div
+                    class="bg-yellow-100 w-10 h-10 rounded-full flex items-center justify-center"
+                  >
+                    <i class="fas fa-file-alt text-yellow-500"></i>
+                  </div>
+                </div>
+                <div>
+                  <p class="font-medium">New post published</p>
+                  <p class="text-gray-600">
+                    You published "Advanced React Patterns"
+                  </p>
+                  <p class="text-sm text-gray-500 mt-1">Yesterday</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="p-6 border-t border-gray-200 mt-6">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-600">© 2023 BlogFlow. All rights reserved.</p>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+              <a href="#" class="text-gray-600 hover:text-primary">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-primary">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-primary">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-primary">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      // Toggle sidebar on mobile
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          const sidebar = document.querySelector(".sidebar");
+          sidebar.classList.toggle("-ml-64");
+        });
+
+      // Initialize chart
+      document.addEventListener("DOMContentLoaded", function () {
+        const ctx = document.getElementById("trafficChart").getContext("2d");
+
+        // Create gradient
+        const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, "rgba(79, 70, 229, 0.3)");
+        gradient.addColorStop(1, "rgba(79, 70, 229, 0)");
+
+        // Chart data
+        const data = {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "Visitors",
+              data: [12000, 19000, 15000, 22000, 18000, 25000],
+              backgroundColor: gradient,
+              borderColor: "#4F46E5",
+              borderWidth: 2,
+              pointBackgroundColor: "#4F46E5",
+              pointRadius: 4,
+              tension: 0.3,
+              fill: true,
+            },
+          ],
+        };
+
+        // Chart options
+        const options = {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                color: "rgba(0, 0, 0, 0.05)",
+              },
+            },
+            x: {
+              grid: {
+                display: false,
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        };
+
+        // Create chart
+        new Chart(ctx, {
+          type: "line",
+          data: data,
+          options: options,
+        });
+
+        // Animate progress bars
+        document.querySelectorAll(".progress-bar").forEach((bar) => {
+          const width = bar.style.width;
+          bar.style.width = "0";
+          setTimeout(() => {
+            bar.style.width = width;
+          }, 300);
+        });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <p
+      style="
+        border-radius: 8px;
+        text-align: center;
+        font-size: 12px;
+        color: #fff;
+        margin-top: 16px;
+        position: fixed;
+        left: 8px;
+        bottom: 8px;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 4px 8px;
+      "
+    >
+      Made with
+      <img
+        src="https://deepsite.hf.co/logo.svg"
+        alt="DeepSite Logo"
+        style="
+          width: 16px;
+          height: 16px;
+          vertical-align: middle;
+          display: inline-block;
+          margin-right: 3px;
+          filter: brightness(0) invert(1);
+        "
+      /><a
+        href="https://deepsite.hf.co"
+        style="color: #fff; text-decoration: underline"
+        target="_blank"
+        >DeepSite</a
+      >
+      - 🧬
+      <a
+        href="https://deepsite.hf.co?remix=divine298/blog-dashboard"
+        style="color: #fff; text-decoration: underline"
+        target="_blank"
+        >Remix</a
+      >
+    </p>
+  </body>
+</html>

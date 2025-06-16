@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Dashboard - New Post</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <style>
+      .tag-enter-animation {
+        animation: fadeIn 0.3s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .sidebar {
+        transition: all 0.3s ease;
+      }
+
+      #editor-container {
+        min-height: 300px;
+        resize: vertical;
+        overflow: auto;
+      }
+
+      .ql-toolbar.ql-snow {
+        border-radius: 8px 8px 0 0 !important;
+      }
+
+      .ql-container.ql-snow {
+        border-radius: 0 0 8px 8px !important;
+      }
+
+      .tag-input:focus {
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+      }
+
+      body {
+        overflow: hidden;
+      }
+
+      .main-content {
+        height: 100vh;
+        overflow-y: auto;
+      }
+
+      #htmlEditor {
+        resize: vertical;
+      }
+
+      #imagePreview {
+        max-height: 200px;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <div
+        class="sidebar bg-gray-900 text-white w-64 space-y-6 p-5 absolute inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition duration-200 ease-in-out z-30"
+      >
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <div
+              class="bg-indigo-500 w-10 h-10 rounded-lg flex items-center justify-center"
+            >
+              <i class="fas fa-blog text-white text-xl"></i>
+            </div>
+            <h1 class="text-2xl font-bold">BlogDash</h1>
+          </div>
+          <button id="sidebar-close" class="text-white md:hidden">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <nav>
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700 p-3 rounded-lg transition"
+          >
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-white bg-gray-700 p-3 rounded-lg"
+          >
+            <i class="fas fa-edit"></i>
+            <span>New Post</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700 p-3 rounded-lg transition"
+          >
+            <i class="fas fa-file-alt"></i>
+            <span>All Posts</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700 p-3 rounded-lg transition"
+          >
+            <i class="fas fa-tags"></i>
+            <span>Categories</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700 p-3 rounded-lg transition"
+          >
+            <i class="fas fa-chart-bar"></i>
+            <span>Analytics</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700 p-3 rounded-lg transition"
+          >
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 md:ml-64 main-content">
+        <!-- Mobile Header -->
+        <div
+          class="bg-white p-4 flex md:hidden items-center justify-between border-b"
+        >
+          <button id="menu-toggle" class="text-gray-800">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+          <div class="text-xl font-bold text-indigo-600">New Post</div>
+          <div class="w-8"></div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8">
+          <div class="flex justify-between items-center mb-6">
+            <div class="hidden md:block">
+              <h2 class="text-2xl font-bold text-gray-800">Create New Post</h2>
+              <p class="text-gray-600">Start writing your next blog post</p>
+            </div>
+            <button
+              id="publishBtn"
+              class="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition flex items-center space-x-2"
+            >
+              <i class="fas fa-paper-plane"></i>
+              <span>Publish Post</span>
+            </button>
+          </div>
+
+          <!-- Post Form -->
+          <form
+            id="postForm"
+            class="bg-white rounded-xl shadow-lg overflow-hidden p-6"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Left Column - Form Fields -->
+              <div class="md:col-span-2">
+                <!-- Title -->
+                <div class="mb-6">
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Post Title</label
+                  >
+                  <input
+                    type="text"
+                    id="postTitle"
+                    placeholder="Enter a compelling title"
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition"
+                  />
+                </div>
+
+                <!-- Featured Image -->
+                <div class="mb-6">
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Featured Image</label
+                  >
+                  <div
+                    class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-indigo-300 transition"
+                  >
+                    <input
+                      type="file"
+                      id="featuredImage"
+                      accept="image/png,image/jpeg,image/gif"
+                      class="hidden"
+                    />
+                    <div id="imagePreviewContainer">
+                      <i class="fas fa-image text-gray-400 text-3xl mb-3"></i>
+                      <p class="text-gray-500 font-medium">
+                        Click to upload or drag and drop
+                      </p>
+                      <p class="text-gray-400 text-sm">
+                        PNG, JPG, GIF up to 10MB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Content Editor -->
+                <div class="mb-6">
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Content</label
+                  >
+                  <div class="flex space-x-2 mb-2">
+                    <button
+                      type="button"
+                      id="wysiwygView"
+                      class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-lg"
+                    >
+                      WYSIWYG
+                    </button>
+                    <button
+                      type="button"
+                      id="htmlView"
+                      class="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg"
+                    >
+                      HTML
+                    </button>
+                  </div>
+                  <div id="editor-container"></div>
+                  <textarea
+                    id="htmlEditor"
+                    class="hidden w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition"
+                    rows="10"
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- Right Column - Settings & Tags -->
+              <div>
+                <!-- Post Settings -->
+                <div class="bg-gray-50 rounded-lg p-5 mb-6">
+                  <h3
+                    class="text-lg font-medium text-gray-800 mb-4 flex items-center"
+                  >
+                    <i class="fas fa-cog text-indigo-500 mr-2"></i>
+                    Post Settings
+                  </h3>
+
+                  <!-- Category -->
+                  <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Category</label
+                    >
+                    <div class="flex space-x-2">
+                      <select
+                        id="categorySelect"
+                        class="w-full p-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+                      >
+                        <option>Technology</option>
+                        <option>Lifestyle</option>
+                        <option>Travel</option>
+                        <option>Business</option>
+                        <option>Design</option>
+                      </select>
+                      <button
+                        id="addCategoryBtn"
+                        class="px-3 py-2 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200"
+                      >
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                    <div id="newCategoryContainer" class="mt-2 hidden">
+                      <input
+                        type="text"
+                        id="newCategoryInput"
+                        placeholder="Enter new category"
+                        class="w-full p-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+                      />
+                      <button
+                        id="submitCategoryBtn"
+                        class="mt-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+                      >
+                        Add
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Status -->
+                  <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Status</label
+                    >
+                    <select
+                      id="postStatus"
+                      class="w-full p-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+                    >
+                      <option>Draft</option>
+                      <option>Review</option>
+                      <option>Published</option>
+                    </select>
+                  </div>
+
+                  <!-- Schedule -->
+                  <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Schedule</label
+                    >
+                    <input
+                      type="datetime-local"
+                      id="postSchedule"
+                      class="w-full p-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+                    />
+                  </div>
+
+                  <!-- SEO Title -->
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >SEO Title</label
+                    >
+                    <input
+                      type="text"
+                      id="seoTitle"
+                      placeholder="Optimized for search engines"
+                      class="w-full p-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"
+                    />
+                  </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="bg-gray-50 rounded-lg p-5">
+                  <h3
+                    class="text-lg font-medium text-gray-800 mb-3 flex items-center"
+                  >
+                    <i class="fas fa-tags text-indigo-500 mr-2"></i>
+                    Tags
+                  </h3>
+
+                  <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2"
+                      >Add Tags</label
+                    >
+                    <div
+                      id="tagsContainer"
+                      class="flex flex-wrap gap-2 mb-3"
+                    ></div>
+                    <div class="relative">
+                      <input
+                        type="text"
+                        id="tagInput"
+                        placeholder="Type tags and press comma or enter..."
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition tag-input"
+                      />
+                      <div class="absolute right-3 top-3.5 text-gray-400">
+                        <i class="fas fa-tag"></i>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">
+                      Add relevant keywords to categorize your post
+                    </p>
+                  </div>
+
+                  <!-- Post Actions -->
+                  <div class="mt-8 pt-5 border-t border-gray-200">
+                    <button
+                      type="button"
+                      id="saveDraftBtn"
+                      class="w-full px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition mb-2"
+                    >
+                      <i class="fas fa-save mr-2"></i> Save as Draft
+                    </button>
+                    <button
+                      type="button"
+                      class="w-full px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 transition"
+                    >
+                      <i class="fas fa-eye mr-2"></i> Preview
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Initialize the WYSIWYG editor with all available toolbar options
+      const editor = new Quill("#editor-container", {
+        modules: {
+          toolbar: [
+            [{ font: [] }], // Font family
+            [{ size: ["small", false, "large", "huge"] }], // Font size
+            [{ header: [1, 2, 3, 4, 5, 6, false] }], // Headers
+            ["bold", "italic", "underline", "strike"], // Text formatting
+            [{ color: [] }, { background: [] }], // Text and background color
+            [{ script: "sub" }, { script: "super" }], // Subscript/superscript
+            [{ align: [] }], // Text alignment
+            ["blockquote", "code-block"], // Blockquote and code block
+            [{ list: "ordered" }, { list: "bullet" }], // Lists
+            [{ indent: "-1" }, { indent: "+1" }], // Indent/outdent
+            ["direction"], // Text direction (LTR/RTL)
+            ["link", "image", "video", "formula"], // Media and formula
+            ["clean"], // Remove formatting
+          ],
+        },
+        placeholder: "Start writing your post here...",
+        theme: "snow",
+      });
+
+      // HTML view toggle functionality
+      const wysiwygViewBtn = document.getElementById("wysiwygView");
+      const htmlViewBtn = document.getElementById("htmlView");
+      const editorContainer = document.getElementById("editor-container");
+      const htmlEditor = document.getElementById("htmlEditor");
+
+      wysiwygViewBtn.addEventListener("click", () => {
+        wysiwygViewBtn.classList.add("bg-indigo-100", "text-indigo-700");
+        wysiwygViewBtn.classList.remove("bg-gray-100", "text-gray-700");
+        htmlViewBtn.classList.add("bg-gray-100", "text-gray-700");
+        htmlViewBtn.classList.remove("bg-indigo-100", "text-indigo-700");
+        editorContainer.classList.remove("hidden");
+        htmlEditor.classList.add("hidden");
+        editor.root.innerHTML = htmlEditor.value;
+      });
+
+      htmlViewBtn.addEventListener("click", () => {
+        htmlViewBtn.classList.add("bg-indigo-100", "text-indigo-700");
+        htmlViewBtn.classList.remove("bg-gray-100", "text-gray-700");
+        wysiwygViewBtn.classList.add("bg-gray-100", "text-gray-700");
+        wysiwygViewBtn.classList.remove("bg-indigo-100", "text-indigo-700");
+        editorContainer.classList.add("hidden");
+        htmlEditor.classList.remove("hidden");
+        htmlEditor.value = editor.root.innerHTML;
+      });
+
+      // Tags functionality
+      const tagsContainer = document.getElementById("tagsContainer");
+      const tagInput = document.getElementById("tagInput");
+      const initialTags = ["Tech", "Web Development", "Design"];
+      let currentTags = [...initialTags];
+
+      function renderTags() {
+        tagsContainer.innerHTML = "";
+        currentTags.forEach((tag) => {
+          const tagElement = document.createElement("div");
+          tagElement.className =
+            "tag-enter-animation bg-indigo-100 text-indigo-700 px-3 py-1.5 rounded-full flex items-center";
+          tagElement.innerHTML = `
+                    ${tag}
+                    <button class="ml-2 text-indigo-400 hover:text-indigo-700" data-tag="${tag}">
+                        <i class="fas fa-times text-xs"></i>
+                    </button>
+                `;
+          tagsContainer.appendChild(tagElement);
+          const removeBtn = tagElement.querySelector("button");
+          removeBtn.addEventListener("click", () => {
+            removeTag(tag);
+          });
+        });
+      }
+
+      function addTag(tagText) {
+        const tag = tagText.trim();
+        if (tag && !currentTags.includes(tag)) {
+          currentTags.push(tag);
+          renderTags();
+        }
+      }
+
+      function removeTag(tagToRemove) {
+        currentTags = currentTags.filter((tag) => tag !== tagToRemove);
+        renderTags();
+      }
+
+      tagInput.addEventListener("keydown", (e) => {
+        if (e.key === "," || e.key === "Enter") {
+          e.preventDefault();
+          if (tagInput.value.trim() !== "") {
+            addTag(tagInput.value);
+            tagInput.value = "";
+          }
+        }
+      });
+
+      renderTags();
+
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const sidebar = document.querySelector(".sidebar");
+      const sidebarClose = document.getElementById("sidebar-close");
+
+      menuToggle.addEventListener("click", () => {
+        sidebar.classList.remove("-translate-x-full");
+      });
+
+      sidebarClose.addEventListener("click", () => {
+        sidebar.classList.add("-translate-x-full");
+      });
+
+      // Featured Image Preview
+      const featuredImageInput = document.getElementById("featuredImage");
+      const imagePreviewContainer = document.getElementById(
+        "imagePreviewContainer"
+      );
+      imagePreviewContainer.addEventListener("click", () =>
+        featuredImageInput.click()
+      );
+      featuredImageInput.addEventListener("change", () => {
+        const file = featuredImageInput.files[0];
+        if (file && file.size <= 10 * 1024 * 1024) {
+          const reader = new FileReader();
+          reader.onload = () => {
+            imagePreviewContainer.innerHTML = `<img id="imagePreview" src="${reader.result}" class="w-full rounded-lg" alt="Featured image preview">`;
+          };
+          reader.readAsDataURL(file);
+        } else {
+          alert("Please select an image smaller than 10MB.");
+        }
+      });
+
+      // Add Category via API
+      const addCategoryBtn = document.getElementById("addCategoryBtn");
+      const newCategoryContainer = document.getElementById(
+        "newCategoryContainer"
+      );
+      const newCategoryInput = document.getElementById("newCategoryInput");
+      const submitCategoryBtn = document.getElementById("submitCategoryBtn");
+      const categorySelect = document.getElementById("categorySelect");
+
+      addCategoryBtn.addEventListener("click", () => {
+        newCategoryContainer.classList.toggle("hidden");
+      });
+
+      submitCategoryBtn.addEventListener("click", async () => {
+        const newCategory = newCategoryInput.value.trim();
+        if (!newCategory) {
+          alert("Please enter a category name.");
+          return;
+        }
+        try {
+          const response = await fetch("/api/categories", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name: newCategory }),
+          });
+          if (response.ok) {
+            const option = document.createElement("option");
+            option.value = newCategory;
+            option.textContent = newCategory;
+            categorySelect.appendChild(option);
+            categorySelect.value = newCategory;
+            newCategoryContainer.classList.add("hidden");
+            newCategoryInput.value = "";
+            alert("Category added successfully!");
+          } else {
+            alert("Failed to add category.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Error adding category.");
+        }
+      });
+
+      // Form Submission via API
+      const postForm = document.getElementById("postForm");
+      const publishBtn = document.getElementById("publishBtn");
+      const saveDraftBtn = document.getElementById("saveDraftBtn");
+
+      async function submitForm(status) {
+        publishBtn.disabled = true;
+        publishBtn.innerHTML =
+          '<i class="fas fa-spinner animate-spin"></i> Publishing...';
+
+        const formData = new FormData();
+        formData.append("title", document.getElementById("postTitle").value);
+        formData.append(
+          "content",
+          htmlEditor.classList.contains("hidden")
+            ? editor.root.innerHTML
+            : htmlEditor.value
+        );
+        formData.append("tags", JSON.stringify(currentTags));
+        formData.append(
+          "category",
+          document.getElementById("categorySelect").value
+        );
+        formData.append(
+          "status",
+          status || document.getElementById("postStatus").value
+        );
+        formData.append(
+          "schedule",
+          document.getElementById("postSchedule").value
+        );
+        formData.append("seoTitle", document.getElementById("seoTitle").value);
+        if (featuredImageInput.files[0]) {
+          formData.append("featuredImage", featuredImageInput.files[0]);
+        }
+
+        try {
+          const response = await fetch("/api/posts", {
+            method: "POST",
+            body: formData,
+          });
+          if (response.ok) {
+            publishBtn.innerHTML = '<i class="fas fa-check"></i> Published';
+            publishBtn.classList.remove("bg-indigo-600");
+            publishBtn.classList.add("bg-green-600");
+          } else {
+            publishBtn.innerHTML = '<i class="fas fa-times"></i> Error';
+            publishBtn.classList.remove("bg-indigo-600");
+            publishBtn.classList.add("bg-red-600");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          publishBtn.innerHTML = '<i class="fas fa-times"></i> Error';
+          publishBtn.classList.remove("bg-indigo-600");
+          publishBtn.classList.add("bg-red-600");
+        } finally {
+          setTimeout(() => {
+            publishBtn.disabled = false;
+            publishBtn.innerHTML =
+              '<i class="fas fa-paper-plane"></i> Publish Post';
+            publishBtn.classList.remove("bg-green-600", "bg-red-600");
+            publishBtn.classList.add("bg-indigo-600");
+          }, 2000);
+        }
+      }
+
+      publishBtn.addEventListener("click", () => submitForm("Published"));
+      saveDraftBtn.addEventListener("click", () => submitForm("Draft"));
+
+      // Set up editor placeholder content
+      editor.root.innerHTML =
+        "<p>Share your thoughts and ideas with the world...</p><p><br></p><p>Start writing your content here. What valuable insights do you have to share?</p>";
+    </script>
+  </body>
+</html>
