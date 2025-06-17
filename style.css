@@ -9,9 +9,14 @@
 }
 
 /* Default Scrollbar Styling */
+.scrollbar {
+  display: block;
+  scrollbar-width: thin; /* Makes scrollbar thinner */
+  scrollbar-color: #888 transparent;
+}
 .scrollbar::-webkit-scrollbar {
-  width: 8px; /* Width of the vertical scrollbar */
-  height: 8px; /* Height of the horizontal scrollbar */
+  width: 4px; /* Width of the vertical scrollbar */
+  height: 4px; /* Height of the horizontal scrollbar */
 }
 
 /* Scrollbar Track */
@@ -40,7 +45,7 @@
 /* For Firefox */
 html {
   scrollbar-width: thin; /* Makes scrollbar thinner */
-  scrollbar-color: #888 #f1f1f1;
+  scrollbar-color: #888 transparent;
   scroll-behavior: smooth;
 }
 
