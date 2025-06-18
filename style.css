@@ -115,7 +115,19 @@ body {
   -webkit-box-orient: block-axis;
 }
 
-
 #address {
   cursor: pointer;
+}
+
+.address-placeholder {
+  position: absolute;
+  top: 35%;
+  left: 2%;
+  display: flex;
+  pointer-events: none;
+}
+
+.address-placeholder p {
+  margin-left: 5px;
+  margin-top: 5px;
 }
