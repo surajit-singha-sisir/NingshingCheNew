@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no" />
+    <title>নিংশিং চে - Bishnupriya Manipuri Cultural Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        tailwind.config = {
+            darkMode: "class", // Enable class-based dark mode
+            theme: {
+                extend: {
+                    colors: {
+                        maroon: "#6e2b19",
+                        saffron: "#FF8C00",
+                        deepbrown: "#4b2e2b",
+                        cream1: "#f9f5e9",
+                        cream2: "#fffaf2",
+                        gold: "#FFD700",
+                    },
+                    fontFamily: {
+                        siliguri: ["Hind Siliguri", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="font-siliguri bg-cream2 text-deepbrown dark:bg-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Header Section -->
+    <header class="flex justify-between items-center bg-maroon dark:bg-gray-900 text-white border-b border-gray-600">
+        <div class="container mx-auto px-4 py-4 relative z-10">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img class="w-10" src="/NingshingChe-Logo.png" alt="NingshingChe-Logo"
+                        srcset="NingshingChe-Logo.png" loading="lazy" />
+                    <span class="flex flex-col">
+                        <h1 class="text-xl">নিংশিং চে</h1>
+                        <h5 class="text-sm text-saffron">
+                            বিষ্ণুপ্রিয়া মণিপুরি তথ্যকোষ
+                        </h5>
+                    </span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://www.facebook.com/ningshingche/" target="_blank"
+                        class="text-saffron hover:text-gold transition duration-300"><i
+                            class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="https://m.youtube.com/@ningshingche/" target="_blank"
+                        class="text-saffron hover:text-gold transition duration-300"><i
+                            class="fab fa-youtube fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky Navigation -->
+    <nav id="stickyNav" class="sticky-nav bg-white shadow-md py-2 top-0 z-50 dark:bg-gray-800 dark:shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Hamburger Icon (Mobile Only) -->
+            <button id="hamburger" class="text-2xl p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 lg:hidden">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Navigation Menu -->
+            <div id="navMenu"
+                class="fixed top-0 left-0 w-64 h-full shadow-lg bg-white dark:bg-gray-800 transform -translate-x-full transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 lg:flex lg:space-x-6 lg:items-center lg:shadow-none lg:w-auto lg:relative z-50">
+
+                <!-- Mobile Close Button -->
+                <div class="flex justify-between items-center p-4 lg:hidden border-b">
+                    <span class="text-lg font-bold">মাথেল</span>
+                    <button id="closeNav" class="text-2xl p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Menu Items -->
+                <div
+                    class="flex flex-col space-y-4 p-4 lg:p-0 lg:space-y-0 lg:flex-row lg:space-x-6 text-deepbrown dark:text-white font-medium">
+                    <a href="/" class="hover:text-saffron transition" title="মূলপাতা">ঘর</a>
+                    <a href="/" class="hover:text-saffron transition" title="সাম্প্রতিক">সাম্প্রতিক</a>
+
+                    <!-- Dropdown 1 -->
+                    <div class="relative">
+                        <button
+                            class="dropdown-toggle hover:text-saffron transition flex items-center space-x-1 focus:outline-none">
+                            <span>অনলাইন চে</span>
+                            <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-52 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০১৪">নিংশিং চে-২০১৪</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০১৫">নিংশিং চে-২০১৫</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০১৬">নিংশিং চে-২০১৬</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০১৭">নিংশিং চে-২০১৭</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০১৮">নিংশিং চে-২০১৮</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০১৯">নিংশিং চে-২০১৯</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০২০">নিংশিং চে-২০২০</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০২১">নিংশিং চে-২০২১</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০২২">নিংশিং চে-২০২২</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০২৩">নিংশিং চে-২০২৩</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০২৪">নিংশিং চে-২০২৪</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০২৫">নিংশিং চে-২০২৫</a>
+                        </div>
+                    </div>
+
+                    <a href="/featured.html" class="hover:text-saffron transition" title="ফিচার্ড">ফিচার্ড</a>
+                    <a href="/emar-tharor-ela.html" class="hover:text-saffron transition" title="ইমার ঠারর এলা">ইমার
+                        ঠারর এলা</a>
+                    <a href="/pou.html" class="hover:text-saffron transition" title="পৌ">পৌ</a>
+                    <a href="/about.html" class="hover:text-saffron transition" title="আমার সম্পর্কে">আমার সম্পর্কে</a>
+
+                    <!-- Dropdown 2 -->
+                    <div class="relative">
+                        <button
+                            class="dropdown-toggle hover:text-saffron transition flex items-center space-x-1 focus:outline-none">
+                            <span>আরাকউ</span>
+                            <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-52 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+                            <a href="/lekhok" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="লেখক">লেখক</a>
+                            <a href="/social-activities"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="সামাজিক কার্যকলাপ">সামাজিক কার্যকলাপ</a>
+                            <a href="/vumikka" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="ভুমিকা">ভুমিকা</a>
+                            <a href="/editorial" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="সম্পাদকীয়">সম্পাদকীয়</a>
+                            <a href="/itihash" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="ইতিহাস">ইতিহাস</a>
+                            <a href="/sahitto" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="সাহিত্য">সাহিত্য</a>
+                            <a href="/somaj-o-sanskriti"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="সমাজ ও সংস্কৃতি">সমাজ ও সংস্কৃতি</a>
+                            <a href="/porjalochona" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="পর্যালোচনা">পর্যালোচনা</a>
+                            <a href="/jiboni" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="জীবনী">জীবনী</a>
+                            <a href="/sriticharon" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="স্মৃতিচারণ">স্মৃতিচারণ</a>
+                            <a href="/pourownik-kahini" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="পৌরাণিক কাহিনী">পৌরাণিক কাহিনী</a>
+                            <a href="/biggan-o-projukti"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="বিজ্ঞান ও প্রযুক্তি">বিজ্ঞান ও প্রযুক্তি</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dark Mode Toggle -->
+            <div class="relative">
+                <button id="theme-toggle" class="text-xl p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700">
+                    <i id="theme-icon" class="fa-solid fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40 lg:hidden"></div>
+
+    <!-- JavaScript -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const closeNav = document.getElementById('closeNav');
+        const overlay = document.getElementById('overlay');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+        });
+
+        closeNav.addEventListener('click', () => {
+            navMenu.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            navMenu.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        // Dropdown toggles
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const dropdown = toggle.nextElementSibling;
+
+                if (!dropdown) return;
+
+                dropdown.classList.toggle('hidden');
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            dropdownToggles.forEach(toggle => {
+                const dropdown = toggle.nextElementSibling;
+                if (!dropdown) return;
+
+                if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Blog Post Section -->
+    <section class="container mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
+        <!-- Main Content -->
+        <article class="lg:w-3/4">
+            <h1 class="hidden">বিষ্ণুপ্রিয়া মণিপুরি সংস্কৃতি: এক দৃষ্টিপাত - নিংশিং চে</h1>
+            <header class="mb-6">
+                <a href="/somaj-o-sanskriti"
+                    class="inline-block bg-saffron dark:bg-gray-700 text-white text-sm font-medium px-4 py-1 rounded-full mb-2 hover:underline dark:hover:bg-saffron">
+                    সমাজ ও সংস্কৃতি</a>
+                <div class="flex items-center justify-between">
+                    <h1 class="text-3xl font-bold text-maroon dark:text-saffron">বিষ্ণুপ্রিয়া মণিপুরি সংস্কৃতি: এক
+                        দৃষ্টিপাত</h1>
+                </div>
+                <div class="text-sm text-gray-600 dark:text-gray-400 mt-2 flex justify-between flex-wrap">
+                    <span>
+                        <a href="#" class="hover:text-saffron">ড. রঞ্জিত সিংহ</a><br>
+                        <span>জুন ১৮, ২০২৫</span>
+                    </span>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://ningshingche.com/blog/bishnupriya-manipuri-sanskriti"
+                            target="_blank" class="text-saffron hover:text-gold transition"
+                            title="Facebook এ শেয়ার করুন">
+                            <i class="fab fa-facebook-f fa-lg"></i>
+                        </a>
+                        <a href="https://api.whatsapp.com/send?text=বিষ্ণুপ্রিয়া মণিপুরি সংস্কৃতি: এক দৃষ্টিপাত https://ningshingche.com/blog/bishnupriya-manipuri-sanskriti"
+                            target="_blank" class="text-saffron hover:text-gold transition"
+                            title="WhatsApp এ শেয়ার করুন">
+                            <i class="fab fa-whatsapp fa-lg"></i>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?text=বিষ্ণুপ্রিয়া মণিপুরি সংস্কৃতি: এক দৃষ্টিপাত&url=https://ningshingche.com/blog/bishnupriya-manipuri-sanskriti"
+                            target="_blank" class="text-saffron hover:text-gold transition"
+                            title="Twitter এ শেয়ার করুন">
+                            <i class="fab fa-twitter fa-lg"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://ningshingche.com/blog/bishnupriya-manipuri-sanskriti"
+                            target="_blank" class="text-saffron hover:text-gold transition"
+                            title="LinkedIn এ শেয়ার করুন">
+                            <i class="fab fa-linkedin-in fa-lg"></i>
+                        </a>
+                        <a href="mailto:?subject=বিষ্ণুপ্রিয়া মণিপুরি সংস্কৃতি: এক দৃষ্টিপাত&body=এই নিবন্ধটি পড়ুন: https://ningshingche.com/blog/bishnupriya-manipuri-sanskriti"
+                            class="text-saffron hover:text-gold transition" title="ইমেইল এ শেয়ার করুন">
+                            <i class="fas fa-envelope fa-lg"></i>
+                        </a>
+                        <button onclick="window.print()" class="text-saffron hover:text-gold transition"
+                            title="প্রিন্ট করুন">
+                            <i class="fas fa-print fa-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5byXfYeES6CHmu30X_VOv-RGptoBda6s48LK7q-6t9iQFzNhfT600E4LnZwrjdX_1U0UBH6efT6Ky3SjFL_vCJ40rabhTrG4mkYA3_Y4lsxQs5Jhgt4ZDWslcgtxX4XwNVEf9bzYZ9Jr7BR2zff4l8S5dqkxikMSD1JkmLoSI9ujVdmLUihvOiyq07E0b/s16000/Oja-Bipin-Singha.png"
+                alt="Bishnupriya Manipuri Culture" class="w-full h-64 object-cover rounded-lg mb-6">
+
+            <div class="prose max-w-none text-deepbrown dark:text-white">
+                <p>বিষ্ণুপ্রিয়া মণিপুরি সম্প্রদায়ের সংস্কৃতি এক সমৃদ্ধ ও বৈচিত্র্যময় ঐতিহ্যের প্রতিফলন। এই
+                    সম্প্রদায়, যারা মূলত ভারতের মণিপুর, আসাম, ত্রিপুরা এবং বাংলাদেশের কিছু অংশে বসবাস করে, তাদের
+                    সংস্কৃতি ইতিহাস, ঐতিহ্য, এবং জীবনযাত্রার এক অনন্য মিশ্রণ। এই নিবন্ধে আমরা বিষ্ণুপ্রিয়া মণিপুরি
+                    সংস্কৃতির বিভিন্ন দিক নিয়ে আলোচনা করব।</p>
+            </div>
+
+            <!-- Tags -->
+            <div class="mt-6">
+                <span class="text-sm font-medium text-gray-600 dark:text-gray-400">ট্যাগ: </span>
+                <a href="/tags/bishnupriya-manipuri"
+                    class="text-xs bg-saffron dark:bg-gray-700 text-white dark:text-saffron px-2 py-1 rounded inline-block hover:bg-red-600 dark:hover:bg-red-700">বিষ্ণুপ্রিয়া
+                    মণিপুরি</a>
+                <a href="/tags/sanskriti"
+                    class="text-xs bg-saffron dark:bg-gray-700 text-white dark:text-saffron px-2 py-1 rounded inline-block hover:bg-red-600 dark:hover:bg-red-700">সংস্কৃতি</a>
+                <a href="/tags/itihas"
+                    class="text-xs bg-saffron dark:bg-gray-700 text-white dark:text-saffron px-2 py-1 rounded inline-block hover:bg-red-600 dark:hover:bg-red-700">ইতিহাস</a>
+                <a href="/tags/nritya"
+                    class="text-xs bg-saffron dark:bg-gray-700 text-white dark:text-saffron px-2 py-1 rounded inline-block hover:bg-red-600 dark:hover:bg-red-700">নৃত্য</a>
+                <a href="/tags/utsav"
+                    class="text-xs bg-saffron dark:bg-gray-700 text-white dark:text-saffron px-2 py-1 rounded inline-block hover:bg-red-600 dark:hover:bg-red-700">উৎসব</a>
+            </div>
+
+            <!-- Comment Section -->
+            <div class="mt-8">
+                <h2 class="text-2xl font-semibold text-maroon dark:text-saffron mb-4">মন্তব্য করুন</h2>
+                <form class="space-y-4">
+                    <!-- Name and Address Row -->
+                    <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+                        <!-- Name -->
+                        <div class="flex-1">
+                            <label for="username" class="block text-sm font-medium text-gray-600 dark:text-gray-400">
+                                নাম <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="username" name="username"
+                                class="w-full p-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-cream1 dark:bg-gray-800 text-deepbrown dark:text-white focus:outline-none focus:border-saffron dark:focus:border-saffron transition-colors duration-300"
+                                required>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="flex-1">
+                            <label for="address" class="block text-sm font-medium text-gray-600 dark:text-gray-400">
+                                ঠিকানা <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="address" name="address" readonly="true" required
+                                class="w-full p-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-cream1 dark:bg-gray-800 text-deepbrown dark:text-white focus:outline-none focus:border-saffron dark:focus:border-saffron transition-colors duration-300">
+
+                            <script>
+                                const addressInput = document.getElementById('address');
+
+                                addressInput.addEventListener('click', () => {
+                                    if (navigator.geolocation) {
+                                        navigator.geolocation.getCurrentPosition(showPosition, showError);
+                                    } else {
+                                        alert("Geolocation is not supported by this browser.");
+                                    }
+                                });
+
+                                function showPosition(position) {
+                                    const latitude = position.coords.latitude;
+                                    const longitude = position.coords.longitude;
+
+                                    fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`)
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            addressInput.value = data.address.borough + ', ' + data.address.state + ', ' + data.address.city + ', ' + data.address.country;
+                                            addressInput.setAttribute('readonly', true);
+                                        })
+                                        .catch(error => {
+                                            console.error('Error fetching address:', error);
+                                            alert('Could not fetch address.');
+                                        });
+                                }
+
+                                function showError(error) {
+                                    alert('Permission denied or location unavailable.');
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                    <!-- Email and Phone Row -->
+                    <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+                        <!-- Email -->
+                        <div class="flex-1">
+                            <label for="email" class="block text-sm font-medium text-gray-600 dark:text-gray-400">
+                                ইমেইল <span class="text-red-500">*</span>
+                            </label>
+                            <input type="email" id="email" name="email"
+                                class="w-full p-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-cream1 dark:bg-gray-800 text-deepbrown dark:text-white focus:outline-none focus:border-saffron dark:focus:border-saffron transition-colors duration-300"
+                                required>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex-1">
+                            <label for="phone" class="block text-sm font-medium text-gray-600 dark:text-gray-400">
+                                ফোন নম্বর <span class="text-red-500">*</span>
+                            </label>
+                            <input type="tel" id="phone" name="phone"
+                                class="w-full p-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-cream1 dark:bg-gray-800 text-deepbrown dark:text-white focus:outline-none focus:border-saffron dark:focus:border-saffron transition-colors duration-300"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- Comment -->
+                    <div>
+                        <label for="comment" class="block text-sm font-medium text-gray-600 dark:text-gray-400">
+                            মন্তব্য <span class="text-red-500">*</span>
+                        </label>
+                        <textarea id="comment" name="comment" rows="5"
+                            class="w-full p-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-cream1 dark:bg-gray-800 text-deepbrown dark:text-white focus:outline-none focus:border-saffron dark:focus:border-saffron transition-colors duration-300"
+                            required></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit"
+                        class="bg-saffron text-white px-4 py-2 rounded-lg hover:bg-gold transition">মন্তব্য জমা
+                        দিন</button>
+                </form>
+
+                <!-- Comment Display Section -->
+                <div class="mt-12">
+                    <h2 class="text-2xl font-semibold text-maroon dark:text-saffron mb-6">প্রাপ্ত মন্তব্যসমূহ</h2>
+
+                    <!-- Single Comment Section -->
+                    <div class="space-y-6">
+
+                        <!-- Single Comment -->
+                        <div
+                            class="p-4 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 shadow hover:shadow-lg transition">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-lg font-semibold text-deepbrown dark:text-white">রহিম উদ্দিন</h3>
+                                <span class="text-sm text-gray-500 dark:text-gray-400">সিলেট</span>
+                            </div>
+                            <blockquote class="text-gray-700 dark:text-gray-300">
+                                <i class="fa-solid fa-quote-left text-saffron mr-2"></i>
+                                এই ব্লগটি অনেক ভালো লাগলো। লেখার স্টাইল এবং বিষয়বস্তু খুব সুন্দর। আরও লিখুন।
+                            </blockquote>
+                        </div>
+
+                        <!-- Single Comment -->
+                        <div
+                            class="p-4 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 shadow hover:shadow-lg transition">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-lg font-semibold text-deepbrown dark:text-white">সুমাইয়া ইসলাম</h3>
+                                <span class="text-sm text-gray-500 dark:text-gray-400">ঢাকা</span>
+                            </div>
+                            <blockquote class="text-gray-700 dark:text-gray-300">
+                                <i class="fa-solid fa-quote-left text-saffron mr-2"></i>
+                                আমি লেখাটি পড়ে অনেক কিছু শিখতে পারলাম। দারুণ অভিজ্ঞতা। শুভ কামনা রইলো।
+                            </blockquote>
+                        </div>
+
+                        <!-- Single Comment -->
+                        <div
+                            class="p-4 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 shadow hover:shadow-lg transition">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-lg font-semibold text-deepbrown dark:text-white">মাহফুজুর রহমান</h3>
+                                <span class="text-sm text-gray-500 dark:text-gray-400">চট্টগ্রাম</span>
+                            </div>
+                            <blockquote class="text-gray-700 dark:text-gray-300">
+                                <i class="fa-solid fa-quote-left text-saffron mr-2"></i>
+                                লেখাটি অসাধারণ। এমন আরও তথ্যবহুল লেখা পড়ার অপেক্ষায় আছি।
+                            </blockquote>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="lg:w-1/4">
+            <!-- Related Articles -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+                <h3
+                    class="text-xl font-bold text-deepbrown dark:text-white mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
+                    সম্পর্কিত নিবন্ধ
+                </h3>
+                <ul class="space-y-4 pr-2">
+                    <li class="flex p-2 rounded transition">
+                        <div class="flex-shrink-0 w-16 h-16">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                alt="রাসলীলা" class="w-full h-full object-cover rounded">
+                        </div>
+                        <div class="ml-4">
+                            <a href="/blog/raslila"
+                                class="text-deepbrown dark:text-white hover:text-saffron dark:hover:text-saffron font-medium">মণিপুরী
+                                মহিলাদের পোশাকের বিবর্তন</a>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1"><i class="fa fa-user-circle"></i>
+                                সুরজিত সিংহ শিশির</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Recent Articles -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+                <h3
+                    class="text-xl font-bold text-deepbrown dark:text-white mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
+                    সাম্প্রতিক নিবন্ধ</h3>
+                <ul class="space-y-4 pr-2">
+                    <li class="flex p-2 rounded transition">
+                        <div class="flex-shrink-0 w-16 h-16">
+                            <img src="https://images.unsplash.com/photo-1517457373958-b4bdd8b50cac?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                alt="২০২৫ উৎসব" class="w-full h-full object-cover rounded">
+                        </div>
+                        <div class="ml-4">
+                            <a href="/blog/2025-festivals"
+                                class="text-deepbrown dark:text-white hover:text-saffron dark:hover:text-saffron font-medium text-dotted-2">২০২৫
+                                সালের বিষ্ণুপ্রিয়া উৎসব</a>
+                            <a href="/somaj-o-sanskriti"
+                                class="text-xs bg-saffron dark:bg-gray-700 text-white dark:text-saffron px-2 py-1 rounded inline-block text-dotted-1">সমাজ
+                                ও সংস্কৃতি</a>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 text-dotted-1"><i
+                                    class="fa fa-user-circle"></i> অমিতাভ সিংহ</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Contact Info -->
+                <div>
+                    <div class="flex items-center space-x-4">
+                        <img class="w-10" src="/NingshingChe-Logo.png" alt="NingshingChe-Logo"
+                            srcset="NingshingChe-Logo.png" loading="lazy" />
+                        <span class="flex flex-col">
+                            <h1 class="text-2xl">নিংশিং চে</h1>
+                        </span>
+                    </div>
+                    <h5 class="text-md text-saffron">
+                        বিষ্ণুপ্রিয়া মণিপুরি তথ্যকোষ
+                    </h5>
+                    <ul class="space-y-2  my-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-saffron"></i>
+                            <a href="https://maps.app.goo.gl/1SmaUj5kGPYgP7gJA" target="_blank">তিলকপুর, কমলগঞ্জ,
+                                মৌলভীবাজার, সিলেট</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-saffron"></i>
+                            <span>+8801700-905268</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-saffron"></i>
+                            <span>ningshingche@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">দ্রুত লিঙ্কসমূহ</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="hover:text-saffron transition">আমাদের সম্পর্কে</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-saffron transition">লেখা জমাদান</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-saffron transition">গোপনীয়তা নীতি</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-saffron transition">শর্তাবলী</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-saffron transition">যোগাযোগ করুন</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-saffron transition">সাইটম্যাপ</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">আমাদের অনুসরণ করুন</h3>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-maroon flex items-center justify-center text-white hover:bg-saffron transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-maroon flex items-center justify-center text-white hover:bg-saffron transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-maroon flex items-center justify-center text-white hover:bg-saffron transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+
+                    <div class="border-t border-gray-600 pt-4">
+                        <p class="mb-2">
+                            সর্বশেষ আপডেট পেতে আমাদের অ্যাপটি ডাউনলোড করুন:
+                        </p>
+                        <div class="flex space-x-2">
+                            <a href="#"
+                                class="flex items-center justify-center bg-maroon w-36 h-10 rounded-md hover:bg-saffron">
+                                <i class="fab fa-google-play mr-2"></i> Play Store
+                            </a>
+                            <a href="#"
+                                class="flex items-center justify-center bg-maroon w-36 h-10 rounded-md hover:bg-saffron">
+                                <i class="fab fa-app-store mr-2"></i> App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-600 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; ২০২৫ নিংশিং চে | সাইট উন্নয়ন <a href="https://kehem.com/"
+                        class="text-saffron hover:text-gold transition duration-300">কেহেম আইটি</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Navbar behavior
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector("header");
+            const stickyNav = document.getElementById("stickyNav");
+            if (window.pageYOffset > header.offsetHeight) {
+                stickyNav.classList.add("fixed", "w-full", "top-0");
+            } else {
+                stickyNav.classList.remove("fixed", "w-full", "top-0");
+            }
+        });
+
+    </script>
+
+    <script>
+        const themeToggleBtn = document.getElementById("theme-toggle");
+        const themeIcon = document.getElementById("theme-icon");
+
+        // Load theme on page load
+        if (
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+            document.documentElement.classList.add("dark");
+            themeIcon.classList.remove("fa-sun");
+            themeIcon.classList.add("fa-moon");
+        } else {
+            document.documentElement.classList.remove("dark");
+            themeIcon.classList.remove("fa-moon");
+            themeIcon.classList.add("fa-sun");
+        }
+
+        // Toggle theme
+        themeToggleBtn.addEventListener("click", () => {
+            const isDark = document.documentElement.classList.toggle("dark");
+            localStorage.theme = isDark ? "dark" : "light";
+            themeIcon.classList.toggle("fa-sun", !isDark);
+            themeIcon.classList.toggle("fa-moon", isDark);
+        });
+    </script>
+</body>
+
+</html>

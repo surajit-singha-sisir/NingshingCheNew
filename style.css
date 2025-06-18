@@ -114,3 +114,8 @@ body {
   -webkit-line-clamp: 5;
   -webkit-box-orient: block-axis;
 }
+
+
+#address {
+  cursor: pointer;
+}
