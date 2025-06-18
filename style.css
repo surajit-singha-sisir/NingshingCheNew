@@ -131,3 +131,10 @@ body {
   margin-left: 5px;
   margin-top: 5px;
 }
+
+#article-content::first-letter {
+  font-size: 4rem;
+  line-height: 1;
+  float: left;
+  margin-right: 0.2em;
+}
