@@ -189,3 +189,38 @@ body {
     --gradient-angle: 360deg;
   }
 }
+
+.badge-animation {
+  animation: badgeAnimation 4s infinite;
+  background: linear-gradient(
+    70deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  background-position: -100% 0;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
+}
+
+@keyframes badgeAnimation {
+  0% {
+    transform: rotateY(0deg);
+    background-position: -100% 0;
+  }
+  20% {
+    transform: rotateY(360deg);
+    background-position: -100% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  90% {
+    background-position: 100% 0;
+  }
+  100% {
+    transform: rotateY(360deg);
+    background-position: -100% 0;
+  }
+}
