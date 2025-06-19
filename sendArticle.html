@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no" />
+    <title>নিংশিং চে - Bishnupriya Manipuri Cultural Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        maroon: "#6e2b19",
+                        saffron: "#FF8C00",
+                        deepbrown: "#4b2e2b",
+                        cream1: "#f9f5e9",
+                        cream2: "#fffaf2",
+                        gold: "#FFD700",
+                    },
+                    fontFamily: {
+                        siliguri: ["Hind Siliguri", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="font-siliguri bg-cream2 text-deepbrown dark:bg-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Header Section -->
+    <header class="flex justify-between items-center bg-maroon dark:bg-gray-900 text-white border-b border-gray-600">
+        <div class="container mx-auto px-4 py-4 relative z-10">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img class="w-10" src="/NingshingChe-Logo.png" alt="NingshingChe-Logo"
+                        srcset="NingshingChe-Logo.png" loading="lazy" />
+                    <span class="flex flex-col">
+                        <h1 class="text-xl">নিংশিং চে</h1>
+                        <h5 class="text-sm text-saffron">
+                            বিষ্ণুপ্রিয়া মণিপুরি তথ্যকোষ
+                        </h5>
+                    </span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://www.facebook.com/ningshingche/" target="_blank"
+                        class="text-saffron hover:text-gold transition duration-300"><i
+                            class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="https://m.youtube.com/@ningshingche/" target="_blank"
+                        class="text-saffron hover:text-gold transition duration-300"><i
+                            class="fab fa-youtube fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky Navigation -->
+    <nav id="stickyNav" class="sticky-nav bg-white shadow-md py-2 top-0 z-50 dark:bg-gray-800 dark:shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Hamburger Icon (Mobile Only) -->
+            <button id="hamburger" class="text-2xl p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 lg:hidden">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Navigation Menu -->
+            <div id="navMenu"
+                class="fixed top-0 left-0 w-64 h-full shadow-lg bg-white dark:bg-gray-800 transform -translate-x-full transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 lg:flex lg:space-x-6 lg:items-center lg:shadow-none lg:w-auto lg:relative z-50">
+
+                <!-- Mobile Close Button -->
+                <div class="flex justify-between items-center p-4 lg:hidden border-b">
+                    <span class="text-lg font-bold">মাথেল</span>
+                    <button id="closeNav" class="text-2xl p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Menu Items -->
+                <div
+                    class="flex flex-col space-y-4 p-4 lg:p-0 lg:space-y-0 lg:flex-row lg:space-x-6 text-deepbrown dark:text-white font-medium">
+                    <a href="/" class="hover:text-saffron transition" title="মূলপাতা">ঘর</a>
+                    <a href="/" class="hover:text-saffron transition" title="সাম্প্রতিক">সাম্প্রতিক</a>
+
+                    <!-- Dropdown 1 -->
+                    <div class="relative">
+                        <button
+                            class="dropdown-toggle hover:text-saffron transition flex items-center space-x-1 focus:outline-none">
+                            <span>অনলাইন চে</span>
+                            <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-52 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০১৪">নিংশিং চে-২০১৪</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০১৫">নিংশিং চে-২০১৫</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০১৬">নিংশিং চে-২০১৬</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০১৭">নিংশিং চে-২০১৭</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০১৮">নিংশিং চে-২০১৮</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০১৯">নিংশিং চে-২০১৯</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০২০">নিংশিং চে-২০২০</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০২১">নিংশিং চে-২০২১</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০২২">নিংশিং চে-২০২২</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০২৩">নিংশিং চে-২০২৩</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০২৪">নিংশিং চে-২০২৪</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="নিংশিং চে-২০২৫">নিংশিং চে-২০২৫</a>
+                        </div>
+                    </div>
+
+                    <a href="/featured.html" class="hover:text-saffron transition" title="ফিচার্ড">ফিচার্ড</a>
+                    <a href="/emar-tharor-ela.html" class="hover:text-saffron transition" title="ইমার ঠারর এলা">ইমার
+                        ঠারর এলা</a>
+                    <a href="/pou.html" class="hover:text-saffron transition" title="পৌ">পৌ</a>
+                    <a href="/about.html" class="hover:text-saffron transition" title="আমার সম্পর্কে">আমার সম্পর্কে</a>
+
+                    <!-- Dropdown 2 -->
+                    <div class="relative">
+                        <button
+                            class="dropdown-toggle hover:text-saffron transition flex items-center space-x-1 focus:outline-none">
+                            <span>আরাকউ</span>
+                            <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-52 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+                            <a href="/lekhok" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="লেখক">লেখক</a>
+                            <a href="/social-activities"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="সামাজিক কার্যকলাপ">সামাজিক কার্যকলাপ</a>
+                            <a href="/vumikka" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="ভুমিকা">ভুমিকা</a>
+                            <a href="/editorial" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="সম্পাদকীয়">সম্পাদকীয়</a>
+                            <a href="/itihash" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="ইতিহাস">ইতিহাস</a>
+                            <a href="/sahitto" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="সাহিত্য">সাহিত্য</a>
+                            <a href="/somaj-o-sanskriti"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="সমাজ ও সংস্কৃতি">সমাজ ও সংস্কৃতি</a>
+                            <a href="/porjalochona" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="পর্যালোচনা">পর্যালোচনা</a>
+                            <a href="/jiboni" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="জীবনী">জীবনী</a>
+                            <a href="/sriticharon" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="স্মৃতিচারণ">স্মৃতিচারণ</a>
+                            <a href="/pourownik-kahini" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="পৌরাণিক কাহিনী">পৌরাণিক কাহিনী</a>
+                            <a href="/biggan-o-projukti"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                title="বিজ্ঞান ও প্রযুক্তি">বিজ্ঞান ও প্রযুক্তি</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dark Mode Toggle -->
+            <div class="relative">
+                <button id="theme-toggle" class="text-xl p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-700">
+                    <i id="theme-icon" class="fa-solid fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40 lg:hidden"></div>
+
+    <!-- JavaScript -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const closeNav = document.getElementById('closeNav');
+        const overlay = document.getElementById('overlay');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+        });
+
+        closeNav.addEventListener('click', () => {
+            navMenu.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            navMenu.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        // Dropdown toggles
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const dropdown = toggle.nextElementSibling;
+
+                if (!dropdown) return;
+
+                dropdown.classList.toggle('hidden');
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            dropdownToggles.forEach(toggle => {
+                const dropdown = toggle.nextElementSibling;
+                if (!dropdown) return;
+
+                if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <div class="max-w-2xl mx-auto p-6">
+        <h2 class="text-lg font-semibold text-maroon dark:text-saffron mb-6 mt-4">নিংশিং আৰ্টিকল ফৰ্ম</h2>
+        <form class="articleForm space-y-4" id="articleForm">
+            <!-- Name and Facebook Profile Link Row -->
+            <div class="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
+                <!-- Name -->
+                <div class="flex-1">
+                    <label for="username" class="text-sm font-medium block text-gray-400 dark:text-gray-300">
+                        নাঙহান <span class="text-red-500">* <span class="text-green-500"></span></span>
+                    </label>
+                    <input type="text" id="username" name="username" placeholder="নিজর নাঙহান ইমার ঠারে লিখিক" required
+                        class="w-full p-2 border-gray-300 dark:border-gray-600 bg-cream1 dark:bg-gray-700 rounded-lg text-gray-900 dark:text-gray-100 focus:ring-saffron focus:border-saffron font-siliguri transition-colors duration-300" />
+                </div>
+                <script>
+                    // Place this script after your HTML or inside DOMContentLoaded
+                    const usernameInput = document.getElementById('username');
+                    const usernameError = usernameInput.parentElement.querySelector('.text-green-500');
+
+                    usernameInput.addEventListener('input', function () {
+                        // Only allow Bengali and English letters, spaces, and remove digits/symbols
+                        const regex = /^[A-Za-z\u0980-\u09FF\s]+$/;
+                        if (!regex.test(this.value)) {
+                            usernameError.textContent = 'হুদ্দা অক্কর লিখানি পারতেই';
+                            this.classList.add('border-red-500');
+                        } else {
+                            usernameError.textContent = '';
+                            this.classList.remove('border-red-500');
+                        }
+                    });
+                </script>
+
+                <!-- Facebook Profile Link -->
+                <div class="flex-1">
+                    <label for="facebook" class="text-sm font-medium block text-gray-400 dark:text-gray-300">
+                        ফেচবুক প্রফাইল লিংক <span class="text-red-500">*</span>
+                    </label>
+                    <input type="url" id="facebook" name="facebook" placeholder="ফেইসবুক প্রোফাইলর লিংক লিখিক" required
+                        class="w-full p-2 border-gray-300 dark:border-gray-600 bg-cream1 dark:bg-gray-700 rounded-lg text-gray-900 dark:text-gray-100 focus:ring-saffron focus:border-saffron font-siliguri transition-colors duration-300" />
+                </div>
+            </div>
+
+            <!-- Address Row (Full Width) -->
+            <div>
+                <label for="address" class="text-sm font-medium block text-gray-400 dark:text-gray-300">
+                    ঠিকানাহান <span class="text-red-500">*</span>
+                    <span class="text-red-500" id="address-required">(ঠিকানা পারমিসন এলাউ করিক)</span>
+                </label>
+                <div class="w-full rounded-lg relative" id="address-input-container">
+                    <input type="text" id="address" name="address" readonly="true" required
+                        class="w-full p-2 border-gray-300 dark:border-gray-600 bg-cream1 dark:bg-gray-700 rounded-lg text-gray-900 dark:text-gray-100 focus:ring-saffron focus:border-saffron font-siliguri transition-colors duration-300 relative z-10" />
+                    <div
+                        class="address-placeholder absolute inset-0 text-gray-400 dark:text-gray-400 flex items-center pl-2 justify-start">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                            class="text-blue-500 dark:text-yellow-400 w-8 aspect-square" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <style>
+                                .ring {
+                                    fill: none;
+                                    stroke-width: 3;
+                                    transform-origin: 50% 80%;
+                                    animation: ripple 2s infinite ease-out, colorChangeLight 2s infinite ease-out;
+                                }
+
+                                .dark .location-icon .ring {
+                                    animation: ripple 2s infinite ease-out, colorChangeDark 2s infinite ease-out;
+                                }
+
+                                @keyframes ripple {
+                                    0% {
+                                        transform: scale(0);
+                                        opacity: 1;
+                                    }
+
+                                    100% {
+                                        transform: scale(1);
+                                        opacity: 0;
+                                    }
+                                }
+
+                                @keyframes colorChangeLight {
+                                    0% {
+                                        stroke: #3b82f6;
+                                    }
+
+                                    50% {
+                                        stroke: #22c55e;
+                                    }
+
+                                    100% {
+                                        stroke: #3b82f6;
+                                    }
+                                }
+
+                                @keyframes colorChangeDark {
+                                    0% {
+                                        stroke: #facc15;
+                                    }
+
+                                    50% {
+                                        stroke: #f87171;
+                                    }
+
+                                    100% {
+                                        stroke: #facc15;
+                                    }
+                                }
+
+                                .ring:nth-of-type(2) {
+                                    animation-delay: 0.5s, 0.5s;
+                                }
+
+                                .ring:nth-of-type(3) {
+                                    animation-delay: 1s, 1s;
+                                }
+
+                                .ring:nth-of-type(4) {
+                                    animation-delay: 1.5s, 1.5s;
+                                }
+                            </style>
+                            <g stroke="none" transform="translate(6 4) scale(0.6)">
+                                <path
+                                    d="M16.114-0.011c-6.559 0-12.114 5.587-12.114 12.204 0 6.93 6.439 14.017 10.77 18.998 0.017 0.020 0.717 0.797 1.579 0.797h0.076c0.863 0 1.558-0.777 1.575-0.797 4.064-4.672 10-12.377 10-18.998 0-6.618-4.333-12.204-11.886-12.204zM16.515 29.849c-0.035 0.035-0.086 0.074-0.131 0.107-0.046-0.032-0.096-0.072-0.133-0.107l-0.523-0.602c-4.106-4.71-9.729-11.161-9.729-17.055 0-5.532 4.632-10.205 10.114-10.205 6.829 0 9.886 5.125 9.886 10.205 0 4.474-3.192 10.416-9.485 17.657zM16.035 6.044c-3.313 0-6 2.686-6 6s2.687 6 6 6 6-2.687 6-6-2.686-6-6-6zM16.035 16.044c-2.206 0-4.046-1.838-4.046-4.044s1.794-4 4-4c2.207 0 4 1.794 4 4 0.001 2.206-1.747 4.044-3.954 4.044z"
+                                    fill="currentColor" />
+                            </g>
+                            <ellipse class="ring" cx="16" cy="25" rx="15" ry="5" />
+                            <ellipse class="ring" cx="16" cy="25" rx="15" ry="5" />
+                            <ellipse class="ring" cx="16" cy="25" rx="15" ry="5" />
+                        </svg>
+                        <p class="ml-2">নিজর লকেসনহান</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email and Phone Row -->
+            <div class="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
+                <!-- Email -->
+                <div class="flex-1">
+                    <label for="email" class="text-sm font-medium block text-gray-400 dark:text-gray-300">
+                        ইমেইল <span class="text-red-500">*</span>
+                    </label>
+                    <input type="email" id="email" name="email" placeholder="নিজর ইমেইল বহিক" required
+                        class="w-full p-2 border-gray-300 dark:border-gray-600 bg-cream1 dark:bg-gray-700 rounded-lg text-gray-900 dark:text-gray-100 focus:ring-saffron focus:border-saffron font-siliguri transition-colors duration-300" />
+                </div>
+
+                <!-- Phone -->
+                <div class="flex-1">
+                    <label for="phone" class="text-sm font-medium block text-gray-400 dark:text-gray-300">
+                        ফোন নম্বৰ <span class="text-red-500">*</span>
+                    </label>
+                    <input type="tel" id="phone" name="phone" placeholder="নিজর ফোন নম্বরগো বহিক" required
+                        class="w-full p-2 border-gray-300 dark:border-gray-600 bg-cream1 dark:bg-gray-700 rounded-lg text-gray-900 dark:text-gray-100 focus:ring-saffron focus:border-saffron font-siliguri transition-colors duration-300" />
+                </div>
+            </div>
+
+            <!-- Article Title -->
+            <div>
+                <label for="title" class="text-sm font-medium block text-gray-400 dark:text-gray-300">
+                    আৰ্টিকলৰ টাইটেল <span class="text-red-500">*</span>
+                </label>
+                <input type="text" id="title" name="title" placeholder="আৰ্টিকলৰ টাইটেল লিখিক" required
+                    class="w-full p-2 border-gray-300 dark:border-gray-600 bg-cream1 dark:bg-gray-700 rounded-lg text-gray-900 dark:text-gray-100 focus:ring-saffron focus:border-saffron font-siliguri transition-colors duration-300" />
+            </div>
+
+            <!-- Article Content -->
+            <div>
+                <label for="content" class="text-sm font-medium block text-gray-400 dark:text-gray-300">
+                    আৰ্টিকল <span class="text-red-500">*</span>
+                </label>
+                <textarea id="content" name="content" rows="8" placeholder="নিজর আৰ্টিকলহান লেখিক ..." required
+                    class="w-full p-2 border-gray-300 dark:border-gray-600 bg-cream1 dark:bg-gray-700 rounded-lg text-gray-900 dark:text-gray-100 focus:ring-saffron focus:border-saffron font-siliguri transition-colors duration-300"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit"
+                class="px-4 py-2 bg-saffron text-white rounded-lg hover:bg-gold font-siliguri transition">
+                আৰ্টিকল পাঠুইক
+            </button>
+        </form>
+    </div>
+
+    <script>
+        // Select input fields to store in local storage
+        const inputsToStore = ['username', 'facebook', 'email', 'phone', 'title'];
+        const addressInput = document.getElementById('address');
+        const addressContainer = document.getElementById('address-input-container');
+        const addressRequired = document.getElementById('address-required');
+        const placeholder = document.querySelector('.address-placeholder');
+        const form = document.getElementById('articleForm');
+
+        // Load saved values from local storage on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            inputsToStore.forEach(id => {
+                const input = document.getElementById(id);
+                const savedValue = localStorage.getItem(id);
+                if (savedValue) {
+                    input.value = savedValue;
+                }
+            });
+        });
+
+        // Save input values to local storage on change
+        inputsToStore.forEach(id => {
+            const input = document.getElementById(id);
+            input.addEventListener('input', () => {
+                localStorage.setItem(id, input.value);
+            });
+        });
+
+        addressInput.addEventListener('click', () => {
+            addressContainer.classList.add('border-animation-wrapper');
+            addressRequired.innerText = 'খানিমপাৰা বাসা ...';
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            }
+        });
+
+        function showPosition(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`)
+                .then(response => response.json())
+                .then(data => {
+                    const addressParts = [
+                        data.address.road,
+                        data.address.borough,
+                        data.address.county,
+                        data.address.state_district,
+                        data.address.state,
+                        data.address.postcode,
+                        data.address.country
+                    ].filter(Boolean);
+
+                    const address = addressParts.join(', ');
+                    addressInput.value = address;
+                    addressInput.setAttribute('readonly', true);
+                    addressInput.style.paddingLeft = '45px';
+                    addressRequired.style.color = '#0ad603';
+                    addressRequired.innerText = 'লকেচন বহানি ইল';
+                    placeholder.querySelector('p').style.display = 'none';
+                    addressContainer.classList.remove('border-animation-wrapper');
+                    addressInput.style.pointerEvents = 'none';
+                })
+                .catch(error => {
+                    alert('Error fetching address: ' + error.message);
+                    addressContainer.classList.remove('border-animation-wrapper');
+                });
+        }
+
+        function showError(error) {
+            alert('Permission denied or location unavailable: ' + error.message);
+            addressContainer.classList.remove('border-animation-wrapper');
+        }
+
+        // Handle form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const articleData = {
+                username: formData.get('username'),
+                facebook: formData.get('facebook'),
+                address: formData.get('address'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                title: formData.get('title'),
+                content: formData.get('content'),
+            };
+            console.log('Article Submitted:', articleData);
+            alert('আপনাৰ আৰ্টিকল ছফলভাৱে জমা হৈছে!');
+            form.reset();
+            localStorage.removeItem('title'); // Clear title after submission
+            localStorage.removeItem('facebook'); // Clear facebook after submission
+        });
+    </script>
+
+
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Contact Info -->
+                <div>
+                    <div class="flex items-center space-x-4">
+                        <img class="w-10" src="/NingshingChe-Logo.png" alt="NingshingChe-Logo"
+                            srcset="NingshingChe-Logo.png" loading="lazy" />
+                        <span class="flex flex-col">
+                            <h1 class="text-2xl">নিংশিং চে</h1>
+                        </span>
+                    </div>
+                    <h5 class="text-md text-saffron">
+                        বিষ্ণুপ্রিয়া মণিপুরি তথ্যকোষ
+                    </h5>
+                    <ul class="space-y-2  my-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-saffron"></i>
+                            <a href="https://maps.app.goo.gl/1SmaUj5kGPYgP7gJA" target="_blank">তিলকপুর, কমলগঞ্জ,
+                                মৌলভীবাজার, সিলেট</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-saffron"></i>
+                            <span>+8801700-905268</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-saffron"></i>
+                            <span>ningshingche@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">দ্রুত লিঙ্কসমূহ</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="hover:text-saffron transition">আমাদের সম্পর্কে</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-saffron transition">লেখা জমাদান</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-saffron transition">গোপনীয়তা নীতি</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-saffron transition">শর্তাবলী</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-saffron transition">যোগাযোগ করুন</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-saffron transition">সাইটম্যাপ</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">আমাদের অনুসরণ করুন</h3>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-maroon flex items-center justify-center text-white hover:bg-saffron transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-maroon flex items-center justify-center text-white hover:bg-saffron transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-maroon flex items-center justify-center text-white hover:bg-saffron transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+
+                    <div class="border-t border-gray-600 pt-4">
+                        <p class="mb-2">
+                            সর্বশেষ আপডেট পেতে আমাদের অ্যাপটি ডাউনলোড করুন:
+                        </p>
+                        <div class="flex space-x-2">
+                            <a href="#"
+                                class="flex items-center justify-center bg-maroon w-36 h-10 rounded-md hover:bg-saffron">
+                                <i class="fab fa-google-play mr-2"></i> Play Store
+                            </a>
+                            <a href="#"
+                                class="flex items-center justify-center bg-maroon w-36 h-10 rounded-md hover:bg-saffron">
+                                <i class="fab fa-app-store mr-2"></i> App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-600 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; ২০২৫ নিংশিং চে | সাইট উন্নয়ন <a href="https://kehem.com/"
+                        class="text-saffron hover:text-gold transition duration-300">কেহেম আইটি</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Navbar behavior
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector("header");
+            const stickyNav = document.getElementById("stickyNav");
+            if (window.pageYOffset > header.offsetHeight) {
+                stickyNav.classList.add("fixed", "w-full", "top-0");
+            } else {
+                stickyNav.classList.remove("fixed", "w-full", "top-0");
+            }
+        });
+
+    </script>
+
+    <script>
+        const themeToggleBtn = document.getElementById("theme-toggle");
+        const themeIcon = document.getElementById("theme-icon");
+
+        // Load theme on page load
+        if (
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+            document.documentElement.classList.add("dark");
+            themeIcon.classList.remove("fa-sun");
+            themeIcon.classList.add("fa-moon");
+        } else {
+            document.documentElement.classList.remove("dark");
+            themeIcon.classList.remove("fa-moon");
+            themeIcon.classList.add("fa-sun");
+        }
+
+        // Toggle theme
+        themeToggleBtn.addEventListener("click", () => {
+            const isDark = document.documentElement.classList.toggle("dark");
+            localStorage.theme = isDark ? "dark" : "light";
+            themeIcon.classList.toggle("fa-sun", !isDark);
+            themeIcon.classList.toggle("fa-moon", isDark);
+        });
+    </script>
+</body>
+
+</html>
