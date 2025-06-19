@@ -121,9 +121,10 @@ body {
 
 .address-placeholder {
   position: absolute;
-  top: 35%;
+  top: 10%;
   left: 2%;
   display: flex;
+  z-index: 10;
   pointer-events: none;
 }
 
@@ -137,4 +138,54 @@ body {
   line-height: 1;
   float: left;
   margin-right: 0.2em;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.border-animation-wrapper {
+  position: relative;
+  z-index: 0;
+  padding: 2px; /* acts as border thickness */
+  border-radius: 0.5rem; /* match input's border radius */
+  background: conic-gradient(
+    from var(--gradient-angle),
+    #6420aa,
+    #ff3ea5,
+    #ff7ed4,
+    #ff3ea5,
+    #6420aa
+  );
+  animation: rotate 3s linear infinite;
+}
+
+.border-animation-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  filter: blur(1rem);
+  background: conic-gradient(
+    from var(--gradient-angle),
+    #6420aa,
+    #ff3ea5,
+    #ff7ed4,
+    #ff3ea5,
+    #6420aa
+  );
+  opacity: 0.7;
+  z-index: -1;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
 }
