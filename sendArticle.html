@@ -449,7 +449,7 @@
 
         addressInput.addEventListener('click', () => {
             addressContainer.classList.add('border-animation-wrapper');
-            addressRequired.innerText = 'খানিমপাৰা বাসা ...';
+            addressRequired.innerText = 'খানিমপারা বাসা ...';
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition, showError);
             }
@@ -477,7 +477,7 @@
                     addressInput.setAttribute('readonly', true);
                     addressInput.style.paddingLeft = '45px';
                     addressRequired.style.color = '#0ad603';
-                    addressRequired.innerText = 'লকেচন বহানি ইল';
+                    addressRequired.innerText = 'লকেসন বহানি ইল';
                     placeholder.querySelector('p').style.display = 'none';
                     addressContainer.classList.remove('border-animation-wrapper');
                     addressInput.style.pointerEvents = 'none';
